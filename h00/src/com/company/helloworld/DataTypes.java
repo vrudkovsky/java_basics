@@ -1,4 +1,4 @@
-package ua.com.danit.fs;
+package com.company.helloworld;
 
 public class DataTypes {
     public static void main(String[] args) {
@@ -11,30 +11,35 @@ public class DataTypes {
 
         // byte - (-128 - +127)
 
-        byte b = 126;
-        System.out.println(b++);
-        System.out.println(b++);
-        System.out.println(b++);
-        System.out.println(b++);
+         int b = 2147483647;
+         System.out.println(b++);
+         System.out.println(b++);
+         System.out.println(b++);
+         System.out.println(b++);
 
-        short s = b;
-        s += 1000;
-        int i = s;
-        long l = b;
+//        short s = b;
+//        s += 1000;
+//        int i = s;
+//        long l = b;
 
-        System.out.println("short " + s);
+//        System.out.println("short " + s);
 
         int intCastToShort = 40000;
         short castedShort = (short) intCastToShort;
 
+        System.out.println(" ");
         System.out.println("int " + intCastToShort);
-        System.out.println("short" + castedShort);
+        System.out.println("short " + castedShort);
 
         System.out.println("                " + Integer.toBinaryString(intCastToShort));
         System.out.println(Integer.toBinaryString(castedShort));
 
-        System.out.println(Integer.toBinaryString(-1));
+        System.out.println(Integer.toBinaryString(3));
+        System.out.println(Integer.toBinaryString(4));
         System.out.println(Integer.toBinaryString(5));
+        System.out.println(Integer.toBinaryString(6));
+        System.out.println(Integer.toBinaryString(7));
+
 
         int empty = 0;
 
