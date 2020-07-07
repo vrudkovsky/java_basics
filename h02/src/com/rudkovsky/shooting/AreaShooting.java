@@ -3,10 +3,25 @@ package com.rudkovsky.shooting;
 public class AreaShooting {
     public static void main(String[] args) {
 
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
-        int [][] shArea = new int[5][5];
-                System.out.println(shArea[i][j]);
+        char [][] shArea = new char[6][6];
+        shArea[2][2] = 'x';
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                if (i == 0) {
+                    System.out.print(j);
+                    System.out.print(" | ");
+                } else if (j == 0) {
+                    System.out.print(i);
+                    System.out.print(shArea[i][j] + " | ");
+                }
+                else {
+                    shArea[i][j] = '-';
+                    System.out.print(shArea[i][j] + " | ");
+                }
+
+                if (j == 5) {
+                    System.out.print("\n");
+                }
             }
         }
     }
