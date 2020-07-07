@@ -25,8 +25,6 @@ public class GuessNumber {
             System.out.println("Enter number: ");
             int playerNumber = scanner.nextInt();
 
-            numbersArray[i] = number;
-
             //Condition statement of guessing number
             if (playerNumber < number ) {
                 System.out.println("Your number is too small. Please, try again..");
