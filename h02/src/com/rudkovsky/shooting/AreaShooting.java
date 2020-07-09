@@ -28,4 +28,4 @@ public class AreaShooting {
                     System.out.print("\n");
                 }
             }
-        }
+//
