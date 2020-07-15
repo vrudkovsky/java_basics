@@ -1,5 +1,5 @@
 # Java Basics
 
-Basics Java Core Tutors
+Java Core exercises
 
 ![img](https://github.com/vrudkovsky/java_basics/blob/master/java.jpg)
