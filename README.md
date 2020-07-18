@@ -18,3 +18,6 @@ Basics Java Core Tutors
 * h11 Java8
 * h12 Console app, Exceptions
 * h13 File system
+
+## License
+Collision is an open-sourced software licensed under the MIT license.
