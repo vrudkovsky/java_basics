@@ -13,7 +13,6 @@ public class HappyFamily {
         cat.respond();
         cat.eat();
         cat.foul();
-
         System.out.println('\0');
 
         System.out.println(cat.toString());
