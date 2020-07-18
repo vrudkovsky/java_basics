@@ -4,7 +4,7 @@ Basics Java Core Tutors
 
 ![img](https://github.com/vrudkovsky/java_basics/blob/master/java.jpg)
 
-##Topics
+## Topics
 * h01 Numbers
 * h02 Shooting area
 * h03 Task planner
