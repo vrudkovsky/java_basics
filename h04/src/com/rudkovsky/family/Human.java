@@ -1,14 +1,14 @@
 package com.rudkovsky.family;
+import java.util.Arrays;
 
 public class Human {
     String name;
     String surname;
     int year;
     int iq;
-
-    Pet pet = new Pet();
-    Human mother = new Human();
-    Human father = new Human();
+    Pet pet;
+    Human mother;
+    Human father ;
     String[][] schedule = new String[7][2];
 
     public Human() {
@@ -20,26 +20,26 @@ public class Human {
         this.year = year;
     }
 
-    public Human(String name, String surname, int year, Human mother, Human father) {
+    public Human(String name, String surname, int year, int iq, Human mother, Human father) {
         this(name, surname, year);
+        this.iq = iq;
         this.mother = mother;
         this.father = father;
     }
 
-    public Human(String name, String surname, int year, int iq, Pet pet, Human mother, Human father, String[][] schedule) {
-        this(name, surname, year, mother, father);
-        this.iq = iq;
+    public Human(String name, String surname, int year, int iq, Pet pet, Human mother, Human father) {
+        this(name, surname, year, iq, mother, father);
         this.pet = pet;
-        this.schedule = schedule;
+        this.describePet();
     }
 
-    void greetPet(String nickname) {
-        System.out.println("Hello " + nickname);
+    void greetPet() {
+        System.out.println("Hello " + this.pet.nickname);
     }
 
-    void describePet(String nickname, int age, int trickLevel) {
-        System.out.println("I have " + nickname + "His is " + age + " years old");
-        if (trickLevel > 50) {
+    void describePet() {
+        System.out.println("I have " + this.pet.nickname + "His is " + this.pet.age + " years old");
+        if (pet.trickLevel >= 50) {
             System.out.print("He is very tricky");
             System.out.print('\n');
         } else {
@@ -50,16 +50,18 @@ public class Human {
 
     @Override
     public String toString() {
-        return "Human{" + "name=" + name
-                + "surname=" + surname + ", "
-                + "year=" + year + ", "
-                + "iq=" + iq + ", "
-                + "mother=" + mother.name + ", "
-                + "father=" + father.name + ", "
-                + "pet=" + "dog{" + pet.nickname + ", "
-                + "age=" + pet.age + ", "
-                + "trickLevel=" + pet.trickLevel + ", "
-                + "habits=" + pet.habits
-                + "}"  + ", " + "}";
+        String text = "";
+        text += "Human {" + "name = " + this.name  + ", "
+                + "surname = " + this.surname + ", "
+                + "year = " + this.year + ", "
+                + "iq = " + this.iq
+                + "}" + '\n';
+        if(this.mother != null)
+            text += "\tmother= " + this.mother.name + ", " + this.mother.surname;
+        if(this.father != null)
+            text += ", father= " + this.father.name + ", " + this.father.surname + "}" + '\n';
+        if(this.pet != null)
+            text += "\tpet= " + this.pet + "}";
+        return text;
     }
 }

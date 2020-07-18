@@ -26,27 +26,28 @@ public class Pet {
     }
 
     void eat() {
-        System.out.println("I am eating");
+        System.out.println(this.species + ": " + "I am eating");
     }
 
-    void respond(String nickname) {
+    void respond() {
         System.out.println("Hello master. I am "
+                + this.species + ", "
                 + this.nickname
                 + ". I am missing you!" );
     }
 
     void foul() {
-        System.out.println("Need to cover your tracks well ...");
+        System.out.println(this.species + ": " + "Need to cover my tracks well ...");
     }
 
     @Override
     public String toString() {
-        return this.species
-                + "{"
-                + "nickname=" + this.nickname + ", "
+        return 	this.species
+                + " {"
+                + "nickname = " + this.nickname + ", "
                 + "age = " + this.age + ", "
-                + "trickLevel= " + trickLevel + ", "
-                + "habits=" + Arrays.toString(habits)
+                + "trickLevel = " + trickLevel + ", \n"
+                + "\thabits = " + Arrays.toString(habits)
                 + "}";
     }
 }
