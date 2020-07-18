@@ -2,7 +2,7 @@
 
 Basics Java Core Tutors
 
-![img](https://github.com/vrudkovsky/java_basics/blob/master/java.jpg)
+![img](https://github.com/vrudkovsky/java_basics/blob/master/java.png)
 
 ## Topics
 * h01 Numbers
