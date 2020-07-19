@@ -22,13 +22,10 @@ public class HappyFamily {
         System.out.println('\0');
 
 
-        // Human class constructors
-        Human emptyHuman = new Human();
         Human father = new Human("Homes", "Addams", 1977);
         Human mother = new Human("Morticia", "Addams", 1979);
         Human daughter = new Human("Wednesday", "Addams", 1989, 120, dog, mother, father);
         Human sun = new Human("Pugsley", "Addams", 1995, 100, cat, mother, father);
-        System.out.println(emptyHuman.toString());
         System.out.println(mother.toString());
         System.out.println(father.toString());
         System.out.println(daughter.toString());
