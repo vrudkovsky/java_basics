@@ -9,6 +9,7 @@ public class Human {
     private int year;
     private int iq;
     private String[][] schedule = new String[7][2];
+    private Pet pet = new Pet();
     private Family family;
 
     public Human(String name, String surname, int year) {
@@ -24,22 +25,23 @@ public class Human {
 
     public Human(String name, String surname, int year, int iq, Pet pet) {
         this(name, surname, year, iq);
+        this.pet = pet;
     }
 
-//    void greetPet() {
-//        System.out.println("Hello " + this.pet.nickname);
-//    }
-//
-//    void describePet() {
-//        System.out.println("I have " + this.pet.nickname + "His is " + this.pet.age + " years old");
-//        if (pet.trickLevel >= 50) {
-//            System.out.print("He is very tricky");
-//            System.out.print('\n');
-//        } else {
-//            System.out.print("He is almost tricky");
-//            System.out.print('\n');
-//        }
-//    }
+    void greetPet() {
+        System.out.println("Hello " + this.pet.getNickname());
+    }
+
+    void describePet() {
+        System.out.println("I have " + this.pet.getNickname() + "His is " + this.pet.getAge() + " years old");
+        if (this.pet.getTrickLevel() >= 50) {
+            System.out.print("He is very tricky");
+            System.out.print('\n');
+        } else {
+            System.out.print("He is almost tricky");
+            System.out.print('\n');
+        }
+    }
 
 
     public String getName() {

@@ -26,6 +26,18 @@ public class Pet {
         this.habits = habits;
     }
 
+    public String getNickname() {
+        return nickname;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public int getTrickLevel() {
+        return trickLevel;
+    }
+
     void eat() {
         System.out.println(this.species + ": " + "I am eating");
     }

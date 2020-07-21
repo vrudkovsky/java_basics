@@ -24,8 +24,8 @@ public class HappyFamily {
 
         Human father = new Human("Homes", "Addams", 1977);
         Human mother = new Human("Morticia", "Addams", 1979);
-        Human daughter = new Human("Wednesday", "Addams", 1989, 120, dog, mother, father);
-        Human sun = new Human("Pugsley", "Addams", 1995, 100, cat, mother, father);
+        Human daughter = new Human("Wednesday", "Addams", 1989, 110, cat);
+        Human sun = new Human("Pugsley", "Addams", 1995, 90, dog);
         System.out.println(mother.toString());
         System.out.println(father.toString());
         System.out.println(daughter.toString());
