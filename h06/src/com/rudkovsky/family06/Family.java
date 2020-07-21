@@ -127,4 +127,10 @@ public class Family {
     public int hashCode() {
         return Objects.hash(mother, father);
     }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.out.println(this.toString() + "destroyed");
+    }
+
 }
