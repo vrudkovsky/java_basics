@@ -28,6 +28,11 @@ public class Human {
         this.pet = pet;
     }
 
+    public Human(String name, String surname, int year, int iq, Pet pet, String[][] schedule) {
+        this(name,surname, year, iq, pet);
+        this.schedule = schedule;
+    }
+
     void greetPet() {
         System.out.println("Hello " + this.pet.getNickname());
     }
@@ -77,8 +82,9 @@ public class Human {
     }
 
     public String[][] getSchedule() {
-        return schedule;
+        return this.schedule;
     }
+
 
     public void setSchedule(String[][] schedule) {
         this.schedule = schedule;
@@ -97,7 +103,8 @@ public class Human {
         return  "Human {" + "name = " + this.name  + ", "
                 + "surname = " + this.surname + ", "
                 + "year = " + this.year + ", "
-                + "iq = " + this.iq
+                + "iq = " + this.iq + ", "
+//                + "schedule = " + this.schedule
                 + "}" + '\n';
     }
 
