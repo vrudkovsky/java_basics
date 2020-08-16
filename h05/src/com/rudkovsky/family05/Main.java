@@ -1,6 +1,6 @@
 package com.rudkovsky.family05;
 
-public class HappyFamily {
+public class Main {
     public static void main(String[] args) {
         // Pet class constructors
         String[] dogHabits = {"woofing", "protect house", "having a walk"};

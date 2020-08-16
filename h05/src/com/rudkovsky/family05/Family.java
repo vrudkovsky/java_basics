@@ -11,6 +11,7 @@ public class Family {
     private Human father;
     private Human[] children = new Human[0];
     private List<Human> childrenList = new ArrayList<>();
+    private Pet pet = new Pet();
 
 
     public Family(Human mother, Human father) {
@@ -106,6 +107,14 @@ public class Family {
 
     }
 
+    public Pet getPet() {
+        return pet;
+    }
+
+    public void setPet(Pet pet) {
+        this.pet = pet;
+    }
+
     @Override
     public String toString() {
         return "Family{" +
@@ -128,4 +137,5 @@ public class Family {
     public int hashCode() {
         return Objects.hash(mother, father);
     }
+
 }
