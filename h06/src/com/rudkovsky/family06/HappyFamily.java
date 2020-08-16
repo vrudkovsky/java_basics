@@ -11,7 +11,7 @@ public class HappyFamily {
         String[] catHabits = {"eat chicken", "drink a milk", "sleep a lot"};
         Pet cat = new Pet(Species.CAT, "Max", 8, 98, catHabits );
 
-        System.out.println(dog.toString());
+       System.out.println(dog.toString());
         cat.respond();
         cat.eat();
         cat.foul();
