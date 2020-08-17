@@ -23,6 +23,10 @@ public class Family {
 
     }
 
+    public Family(Human humanTest1, Human humanTest2, Human[] humans, com.rudkovsky.family06.Pet pet) {
+
+    }
+
     public Human getMother() {
         return mother;
     }
@@ -102,10 +106,11 @@ public class Family {
         boolean removed = this.childrenList.remove(human);
     }
 
-    public void countFamily(){
+    public byte countFamily(){
         int count = this.children.length + 2;
         System.out.println("Family size " + count + "persons");
 
+        return 0;
     }
 
     public Pet getPet() {

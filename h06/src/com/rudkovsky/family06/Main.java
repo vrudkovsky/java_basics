@@ -45,9 +45,9 @@ public class Main {
         daughter.greetPet();
         System.out.println("Daughter Schedule = " + Arrays.deepToString(daughter.getSchedule()));
 
-        for (int i = 0; i < daughterSchedule.length; i++) {
-            for (int j = 0; j < daughterSchedule[i].length; j++) {
-                System.out.println(sanday + daughterSchedule[i][j]);
+        for (String[] strings : daughterSchedule) {
+            for (String string : strings) {
+                System.out.println(sanday + string);
             }
         }
 

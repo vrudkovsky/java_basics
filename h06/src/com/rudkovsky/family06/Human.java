@@ -33,6 +33,10 @@ public class Human {
         this.schedule = schedule;
     }
 
+    public Human(String name, String surname, int year, int iq, String[][] schedule1) {
+
+    }
+
     void greetPet() {
         System.out.println("Hello " + this.pet.getNickname());
     }
