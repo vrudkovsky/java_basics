@@ -104,7 +104,7 @@ public class Human {
                 + "surname = " + this.surname + ", "
                 + "year = " + this.year + ", "
                 + "iq = " + this.iq + ", "
-//                + "schedule = " + this.schedule
+                + "schedule = " + Arrays.deepToString(schedule)
                 + "}" + '\n';
     }
 
@@ -129,7 +129,12 @@ public class Human {
 
     @Override
     protected void finalize() throws Throwable {
-        System.out.println(this.toString() + "destroyed");
+        System.out.println(
+                "Human {" + "name = " + this.name  + ", "
+                        + "surname = " + this.surname + ", "
+                        + "year = " + this.year + ", "
+                        + "iq = " + this.iq + ", "
+                        + "schedule = " + Arrays.deepToString(schedule)
+                        + "}" + '\n');
     }
-
 }

@@ -85,8 +85,11 @@ public class Pet {
 
     @Override
     protected void finalize() throws Throwable {
-        System.out.println(this.toString() + "destroyed");
+        System.out.println(this.species + " {"
+                        + "nickname = " + this.nickname + ", "
+                        + "age = " + this.age + ", "
+                        + "trickLevel = " + trickLevel + ", \n"
+                        + "\thabits = " + Arrays.toString(habits)
+                        + "}");
     }
-
-
 }

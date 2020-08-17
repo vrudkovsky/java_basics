@@ -1,5 +1,7 @@
 package com.rudkovsky.family06;
 
+import com.rudkovsky.family05.Pet;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -10,6 +12,7 @@ public class Family {
     private Human father;
     private Human[] children = new Human[0];
     private List<Human> childrenList = new ArrayList<>();
+    private Pet pet = new Pet();
 
 
     public Family(Human mother, Human father) {
@@ -105,6 +108,14 @@ public class Family {
 
     }
 
+    public Pet getPet() {
+        return pet;
+    }
+
+    public void setPet(Pet pet) {
+        this.pet = pet;
+    }
+
     @Override
     public String toString() {
         return "Family{" +
@@ -130,7 +141,11 @@ public class Family {
 
     @Override
     protected void finalize() throws Throwable {
-        System.out.println(this.toString() + "destroyed");
+        System.out.println("Family{"
+                            +"mother =" + mother
+                            + ", father =" + father
+                            + ", children =" + Arrays.toString(children)
+                            + ", pet = " + pet
+                            + '}');
     }
-
 }

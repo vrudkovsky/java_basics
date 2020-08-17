@@ -2,7 +2,7 @@ package com.rudkovsky.family06;
 
 import java.util.Arrays;
 
-public class HappyFamily {
+public class Main {
     public static void main(String[] args) {
         // Pet class constructors
         String[] dogHabits = {"woofing", "protect house", "having a walk"};
