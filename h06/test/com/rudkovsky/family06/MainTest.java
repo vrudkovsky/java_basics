@@ -15,10 +15,12 @@ class MainTest {
 
     @BeforeEach
     void setUp() {
-        DayOfWeek friday = DayOfWeek.FRIDAY;
         DayOfWeek sunday = DayOfWeek.SUNDAY;
         DayOfWeek monday = DayOfWeek.MONDAY;
+        DayOfWeek tuesday = DayOfWeek.TUESDAY;
         DayOfWeek wednesday = DayOfWeek.WEDNESDAY;
+        DayOfWeek friday = DayOfWeek.FRIDAY;
+        DayOfWeek saturday = DayOfWeek.SATURDAY;
         String[][] schedule1 = new String[][] {{String.valueOf(friday), "task"},{String.valueOf(sunday), "task2"}};
         String[][] schedule2 = new String[][] {{String.valueOf(wednesday), "task4"},{String.valueOf(monday), "task5"}};
         Pet pet = new Pet(Species.DOG, "Paddy", 5, 50, new String[]{"eat", "run"});
