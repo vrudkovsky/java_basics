@@ -37,11 +37,11 @@ public class Human {
 
     }
 
-    void greetPet() {
+    public void greetPet() {
         System.out.println("Hello " + this.pet.getNickname());
     }
 
-    void describePet() {
+    public void describePet() {
         System.out.println("I have " + this.pet.getNickname() + "His is " + this.pet.getAge() + " years old");
         if (this.pet.getTrickLevel() >= 50) {
             System.out.print("He is very tricky");

@@ -38,18 +38,18 @@ public class Pet {
         return trickLevel;
     }
 
-    void eat() {
+    public void eat() {
         System.out.println(this.species + ": " + "I am eating");
     }
 
-    void respond() {
+    public void respond() {
         System.out.println("Hello master. I am "
                 + this.species + ", "
                 + this.nickname
                 + ". I am missing you!" );
     }
 
-    void foul() {
+    public void foul() {
         System.out.println(this.species + ": " + "Need to cover my tracks well ...");
     }
 

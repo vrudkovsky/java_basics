@@ -9,7 +9,7 @@ public class Human {
     private int year;
     private int iq;
     private String[][] schedule = new String[7][2];
-    private Pet pet = new Pet();
+    private Pet pet;
     private Family family;
 
     public Human(String name, String surname, int year) {
@@ -92,6 +92,14 @@ public class Human {
 
     public void setSchedule(String[][] schedule) {
         this.schedule = schedule;
+    }
+
+    public Pet getPet() {
+        return pet;
+    }
+
+    public void setPet(Pet pet) {
+        this.pet = pet;
     }
 
     public Family getFamily() {

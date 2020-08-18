@@ -3,8 +3,7 @@ package com.rudkovsky.family07;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Pet {
-    private Species species;
+public abstract class Pet {
     private String nickname;
     private int age;
     private int trickLevel;
@@ -14,12 +13,10 @@ public class Pet {
     }
 
     public Pet(Species species, String nickname) {
-        this.species = species;
         this.nickname = nickname;
     }
 
-    public Pet(Species species, String nickname, int age, int trickLevel, String[] habits) {
-        this.species = species;
+    public Pet(String nickname, int age, int trickLevel, String[] habits) {
         this.nickname = nickname;
         this.age = age;
         this.trickLevel = trickLevel;
@@ -30,33 +27,43 @@ public class Pet {
         return nickname;
     }
 
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
     public int getAge() {
         return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public int getTrickLevel() {
         return trickLevel;
     }
 
+    public void setTrickLevel(int trickLevel) {
+        this.trickLevel = trickLevel;
+    }
+
+    public String[] getHabits() {
+        return habits;
+    }
+
+    public void setHabits(String[] habits) {
+        this.habits = habits;
+    }
+
     void eat() {
-        System.out.println(this.species + ": " + "I am eating");
+        System.out.println("I am eating");
     }
 
-    void respond() {
-        System.out.println("Hello master. I am "
-                + this.species + ", "
-                + this.nickname
-                + ". I am missing you!" );
-    }
-
-    void foul() {
-        System.out.println(this.species + ": " + "Need to cover my tracks well ...");
-    }
+    public abstract void respond();
 
     @Override
     public String toString() {
-        return 	this.species
-                + " {"
+        return 	"{"
                 + "nickname = " + this.nickname + ", "
                 + "age = " + this.age + ", "
                 + "trickLevel = " + trickLevel + ", \n"
@@ -71,21 +78,20 @@ public class Pet {
         Pet pet = (Pet) o;
         return age == pet.age &&
                 trickLevel == pet.trickLevel &&
-                species.equals(pet.species) &&
                 nickname.equals(pet.nickname) &&
                 Arrays.equals(habits, pet.habits);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(species, nickname, age, trickLevel);
+        int result = Objects.hash(nickname, age, trickLevel);
         result = 31 * result + Arrays.hashCode(habits);
         return result;
     }
 
     @Override
     protected void finalize() throws Throwable {
-        System.out.println(this.species + " {"
+        System.out.println(" {"
                         + "nickname = " + this.nickname + ", "
                         + "age = " + this.age + ", "
                         + "trickLevel = " + trickLevel + ", \n"

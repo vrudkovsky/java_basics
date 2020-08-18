@@ -1,10 +1,11 @@
 package com.rudkovsky.family07;
 
 public enum Species {
-    CAT,
+    DOMESTICCAT,
     DOG,
     FISH,
-    PARROT;
+    ROBOCAT,
+    UNKNOWN;
 
     @Override
     public String toString() {
