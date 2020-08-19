@@ -1,13 +1,15 @@
 package com.rudkovsky.family08;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 public abstract class Pet {
     private String nickname;
     private int age;
     private int trickLevel;
-    private String[] habits;
+    public Set<String> habits = new HashSet<>();
 
     public Pet() {
     }
@@ -16,7 +18,7 @@ public abstract class Pet {
         this.nickname = nickname;
     }
 
-    public Pet(String nickname, int age, int trickLevel, String[] habits) {
+    public Pet(String nickname, int age, int trickLevel, Set<String> habits) {
         this.nickname = nickname;
         this.age = age;
         this.trickLevel = trickLevel;
@@ -47,11 +49,11 @@ public abstract class Pet {
         this.trickLevel = trickLevel;
     }
 
-    public String[] getHabits() {
+    public Set<String> getHabits() {
         return habits;
     }
 
-    public void setHabits(String[] habits) {
+    public void setHabits(Set<String> habits) {
         this.habits = habits;
     }
 
@@ -67,35 +69,17 @@ public abstract class Pet {
                 + "nickname = " + this.nickname + ", "
                 + "age = " + this.age + ", "
                 + "trickLevel = " + trickLevel + ", \n"
-                + "\thabits = " + Arrays.toString(habits)
+                + "\thabits = " + habits
                 + "}";
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Pet pet = (Pet) o;
-        return age == pet.age &&
-                trickLevel == pet.trickLevel &&
-                nickname.equals(pet.nickname) &&
-                Arrays.equals(habits, pet.habits);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = Objects.hash(nickname, age, trickLevel);
-        result = 31 * result + Arrays.hashCode(habits);
-        return result;
-    }
-
-    @Override
     protected void finalize() throws Throwable {
-        System.out.println(" {"
+        System.out.println("Pet:{"
                         + "nickname = " + this.nickname + ", "
                         + "age = " + this.age + ", "
                         + "trickLevel = " + trickLevel + ", \n"
-                        + "\thabits = " + Arrays.toString(habits)
-                        + "}");
+                        + "\thabits = " + habits
+                        + "}"+ "destroyed" + '\n');
     }
 }

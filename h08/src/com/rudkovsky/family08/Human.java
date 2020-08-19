@@ -1,6 +1,8 @@
 package com.rudkovsky.family08;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class Human {
@@ -8,7 +10,7 @@ public class Human {
     private String surname;
     private int year;
     private int iq;
-    private String[][] schedule = new String[7][2];
+    private Map<String, String> schedule = new HashMap<String, String>();
     private Pet pet;
     private Family family;
 
@@ -28,12 +30,12 @@ public class Human {
         this.pet = pet;
     }
 
-    public Human(String name, String surname, int year, int iq, Pet pet, String[][] schedule) {
+    public Human(String name, String surname, int year, int iq, Pet pet, Map<String, String> schedule) {
         this(name,surname, year, iq, pet);
         this.schedule = schedule;
     }
 
-    public Human(String name, String surname, int year, int iq, String[][] schedule1) {
+    public Human(String name, String surname, int year, int iq, Map<String, String> schedule1) {
 
     }
 
@@ -85,12 +87,11 @@ public class Human {
         this.iq = iq;
     }
 
-    public String[][] getSchedule() {
-        return this.schedule;
+    public Map<String, String> getSchedule() {
+        return schedule;
     }
 
-
-    public void setSchedule(String[][] schedule) {
+    public void setSchedule(Map<String, String> schedule) {
         this.schedule = schedule;
     }
 
@@ -116,7 +117,7 @@ public class Human {
                 + "surname = " + this.surname + ", "
                 + "year = " + this.year + ", "
                 + "iq = " + this.iq + ", "
-                + "schedule = " + Arrays.deepToString(schedule)
+                + "schedule = " + schedule
                 + "}" + '\n';
     }
 
@@ -128,25 +129,22 @@ public class Human {
         return year == human.year &&
                 iq == human.iq &&
                 name.equals(human.name) &&
-                surname.equals(human.surname) &&
-                Arrays.equals(schedule, human.schedule);
+                surname.equals(human.surname);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(name, surname, year, iq);
-        result = 31 * result + Arrays.hashCode(schedule);
-        return result;
+        return Objects.hash(name, surname, year, family);
     }
 
     @Override
     protected void finalize() throws Throwable {
         System.out.println(
-                "Human {" + "name = " + this.name  + ", "
+                        "Human: {" + "name = " + this.name  + ", "
                         + "surname = " + this.surname + ", "
                         + "year = " + this.year + ", "
                         + "iq = " + this.iq + ", "
-                        + "schedule = " + Arrays.deepToString(schedule)
-                        + "}" + '\n');
+                        + "schedule = " + schedule
+                        + "}"+ "destroyed" + '\n');
     }
 }
