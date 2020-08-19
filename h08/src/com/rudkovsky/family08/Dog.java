@@ -1,16 +1,17 @@
-package com.rudkovsky.family07;
+package com.rudkovsky.family08;
 
 import java.util.Arrays;
 
-public class Fish extends Pet{
-    private Species species = Species.FISH;
+public class Dog extends Pet implements Foul {
+    private Species species = Species.DOG;
 
-    public Fish(String name, int age, int trickLevel, String[] habbits) {
-        super(name, age, trickLevel, habbits);
+    public Dog() {
     }
 
-    public Fish() {
+    public Dog(String nickname, int age, int trickLevel, String[] habits) {
+        super(nickname, age, trickLevel, habits);
     }
+
 
     public Species getSpecies() {
         return species;
@@ -21,18 +22,24 @@ public class Fish extends Pet{
     }
 
     @Override
+    public void foul() {
+        System.out.println("Need to cover my tracks well ...");
+    }
+
+    @Override
     public void respond() {
-        System.out.println("Hello. I'm " + super.getNickname() + " your fish.");
+        System.out.println("Hey! I'm " +super.getNickname() + ", your " + species);
     }
 
     @Override
     public String toString() {
-        return  species + "{" +
-                "species=" + species +
+        return  species + ": " + "{" +
+                "species7=" + species +
                 ", nickname='" + super.getNickname() + '\'' +
                 ", age=" + super.getAge() +
                 ", trickLevel=" + super.getTrickLevel() +
                 ", habits=" + Arrays.toString(super.getHabits()) +
                 '}';
     }
+
 }

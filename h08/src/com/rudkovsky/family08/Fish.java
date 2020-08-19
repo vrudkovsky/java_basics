@@ -1,11 +1,11 @@
-package com.rudkovsky.family07;
+package com.rudkovsky.family08;
 
 import java.util.Arrays;
 
-public class Fish extends Pet{
+public class Fish extends Pet {
     private Species species = Species.FISH;
 
-    public Fish(String name, int age, int trickLevel, String[] habbits) {
+    public  Fish(String name, int age, int trickLevel, String[] habbits) {
         super(name, age, trickLevel, habbits);
     }
 
