@@ -55,7 +55,6 @@ public class Main {
                 System.out.println(sanday + string);
             }
         }
-
 //        Human[] human = new Human[20000000];
 //
 //        for (int i = 0; i < 20000000; i++) {
