@@ -59,32 +59,5 @@ public class Main {
         family.addChild(daughter);
         System.out.println(family);
 
-
-
-//        Map<String, String> daughterSchedule = {{"swiming", "Go waking"}, {"English classes", "Java classes"}};
-//        Human father = new Human("Homes", "Addams", 1977);
-//        Human mother = new Human("Morticia", "Addams", 1979);
-//        Human daughter = new Human("Wednesday", "Addams", 1989, 110, cat, daughterSchedule);
-//        Human sun = new Human("Pugsley", "Addams", 1995, 90, dog);
-//        System.out.println(mother.toString());
-//        System.out.println(father.toString());
-//        System.out.println(daughter.toString());
-//        System.out.println(sun.toString());
-//        sun.describePet();
-//        daughter.greetPet();
-//        System.out.println("Daughter Schedule = " + daughter.getSchedule().toString());
-//
-//        for (String[] strings : daughterSchedule) {
-//            for (String string : strings) {
-//                System.out.println(sanday + string);
-//            }
-//        }
-
-//        Human[] human = new Human[20000000];
-//
-//        for (int i = 0; i < 20000000; i++) {
-//            human[i] = new Human("Serge", "Peterson", 1990);
-//        }
-
     }
 }
