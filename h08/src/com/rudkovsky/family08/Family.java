@@ -8,6 +8,7 @@ public class Family {
     private List<Object> children;
     private Set<Object> pet;
 
+
     public Family(Human mother, Human father, List<Object> children, Set<Object> pet) {
         this.mother = mother;
         this.father = father;
@@ -16,8 +17,6 @@ public class Family {
     }
 
  // Setter and getters
-
-
     public Human getMother() {
         return mother;
     }
@@ -68,11 +67,11 @@ public class Family {
 
     @Override
     public String toString() {
-        return "Family{" +
-                "mother=" + mother +
-                ", father=" + father +
-                ", children=" + children +
-                ", pet=" + pet +
+        return "Family --> {" +
+                "mother: " + mother + "; " + '\n' +
+                "father: " + father + "; " + '\n' +
+                "children: " + children + "; " + '\n' +
+                "pet=" + pet +  "; " + '\n' +
                 '}';
     }
 

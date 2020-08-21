@@ -5,12 +5,14 @@ import java.util.Arrays;
 public class Fish extends Pet{
     private Species species = Species.FISH;
 
+    public Fish() {
+    }
+
     public Fish(String name, int age, int trickLevel, String[] habbits) {
         super(name, age, trickLevel, habbits);
     }
 
-    public Fish() {
-    }
+
 
     public Species getSpecies() {
         return species;

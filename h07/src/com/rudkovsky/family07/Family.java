@@ -1,7 +1,5 @@
 package com.rudkovsky.family07;
 
-import com.rudkovsky.family05.Pet;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -12,7 +10,7 @@ public class Family {
     private Human father;
     private Human[] children = new Human[0];
     private List<Human> childrenList = new ArrayList<>();
-    private Pet pet = new Pet();
+    private Pet pet;
 
 
     public Family(Human mother, Human father) {

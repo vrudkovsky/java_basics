@@ -22,7 +22,7 @@ public class DomesticCat extends Pet implements Foul {
     @Override
     public String toString() {
         return  species + ": " + "{" +
-                "species7=" + species +
+                "species=" + species +
                 ", nickname='" + super.getNickname() + '\'' +
                 ", age=" + super.getAge() +
                 ", trickLevel=" + super.getTrickLevel() +

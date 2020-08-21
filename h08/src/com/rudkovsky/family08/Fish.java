@@ -1,16 +1,14 @@
 package com.rudkovsky.family08;
 
-import java.util.Arrays;
+import java.util.Set;
 
 public class Fish extends Pet {
     private Species species = Species.FISH;
 
-    public  Fish(String name, int age, int trickLevel, String[] habbits) {
+     public  Fish(String name, int age, int trickLevel, Set<String> habbits) {
         super(name, age, trickLevel, habbits);
     }
 
-    public Fish() {
-    }
 
     public Species getSpecies() {
         return species;
@@ -32,7 +30,7 @@ public class Fish extends Pet {
                 ", nickname='" + super.getNickname() + '\'' +
                 ", age=" + super.getAge() +
                 ", trickLevel=" + super.getTrickLevel() +
-                ", habits=" + Arrays.toString(super.getHabits()) +
+                ", habits=" + habits +
                 '}';
     }
 }

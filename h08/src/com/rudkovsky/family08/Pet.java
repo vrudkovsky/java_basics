@@ -1,8 +1,6 @@
 package com.rudkovsky.family08;
 
-import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 public abstract class Pet {
@@ -66,9 +64,9 @@ public abstract class Pet {
     @Override
     public String toString() {
         return 	"{"
-                + "nickname = " + this.nickname + ", "
-                + "age = " + this.age + ", "
-                + "trickLevel = " + trickLevel + ", \n"
+                + "nickname = " + this.nickname + "; "
+                + "age = " + this.age + "; "
+                + "trickLevel = " + trickLevel + "; \n"
                 + "\thabits = " + habits
                 + "}";
     }

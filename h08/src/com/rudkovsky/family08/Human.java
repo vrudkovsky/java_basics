@@ -1,6 +1,5 @@
 package com.rudkovsky.family08;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -10,7 +9,7 @@ public class Human {
     private String surname;
     private int year;
     private int iq;
-    private Map<String, String> schedule = new HashMap<String, String>();
+    private Map<String, String> schedule = new HashMap<>();
     private Pet pet;
     private Family family;
 
@@ -88,6 +87,14 @@ public class Human {
     }
 
     public Map<String, String> getSchedule() {
+        schedule.put(String.valueOf(DayOfWeek.MONDAY), null);
+        schedule.put(String.valueOf(DayOfWeek.TUESDAY), null);
+        schedule.put(String.valueOf(DayOfWeek.WEDNESDAY), null);
+        schedule.put(String.valueOf(DayOfWeek.THURSDAY), null);
+        schedule.put(String.valueOf(DayOfWeek.FRIDAY), null);
+        schedule.put(String.valueOf(DayOfWeek.SATURDAY), null);
+        schedule.put(String.valueOf(DayOfWeek.SUNDAY), null);
+
         return schedule;
     }
 

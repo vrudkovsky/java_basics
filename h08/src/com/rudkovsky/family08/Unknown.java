@@ -2,10 +2,10 @@ package com.rudkovsky.family08;
 
 import java.util.Set;
 
-public class RoboCat extends Pet implements Foul {
-    public Species species = Species.ROBOCAT;
+public class Unknown extends Pet {
+    public Species species = Species.UNKNOWN;
 
-    public RoboCat(String nickname, int age, int trickLevel, Set<String> habits) {
+    public Unknown(String nickname, int age, int trickLevel, Set<String> habits) {
         super(nickname, age, trickLevel, habits);
     }
 
@@ -16,17 +16,12 @@ public class RoboCat extends Pet implements Foul {
 
     @Override
     public String toString() {
-        return  species + ": " + "{" +
-                "species=" + species +
+        return "Unknown7{" +
+                "species7=" + species +
                 ", nickname='" + super.getNickname() + '\'' +
                 ", age=" + super.getAge() +
                 ", trickLevel=" + super.getTrickLevel() +
-                ", habits=" + habits +
+                ", habits=" + habits+
                 '}';
-    }
-
-    @Override
-    public void foul() {
-        System.out.println("Need to cover my tracks well ...");
     }
 }

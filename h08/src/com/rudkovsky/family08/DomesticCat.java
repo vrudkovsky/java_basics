@@ -1,11 +1,11 @@
 package com.rudkovsky.family08;
 
-import java.util.Arrays;
+import java.util.Set;
 
 public class DomesticCat extends Pet implements Foul {
     public Species species = Species.DOMESTICCAT;
 
-    public DomesticCat(String nickname, int age, int trickLevel, String[] habits) {
+    public DomesticCat(String nickname, int age, int trickLevel, Set<String> habits) {
         super(nickname, age, trickLevel, habits);
     }
 
@@ -21,12 +21,12 @@ public class DomesticCat extends Pet implements Foul {
 
     @Override
     public String toString() {
-        return  species + ": " + "{" +
-                "species7=" + species +
-                ", nickname='" + super.getNickname() + '\'' +
-                ", age=" + super.getAge() +
-                ", trickLevel=" + super.getTrickLevel() +
-                ", habits=" + Arrays.toString(super.getHabits()) +
-                '}';
+        return  species + " " + "{" +
+                "species: " + species + "; " +
+                "nickname: " + super.getNickname() + "; " +
+                "age: " + super.getAge() + "; " +
+                "trickLevel: " + super.getTrickLevel() + "; " +
+                "habits: " + habits + ";" +
+                "}";
     }
 }
