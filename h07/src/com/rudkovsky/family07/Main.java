@@ -2,13 +2,6 @@ package com.rudkovsky.family07;
 
 public class Main {
     public static void main(String[] args) {
-        DayOfWeek sanday = DayOfWeek.SUNDAY;
-        DayOfWeek monday = DayOfWeek.MONDAY;
-        DayOfWeek thuesday = DayOfWeek.TUESDAY;
-        DayOfWeek wednesday = DayOfWeek.WEDNESDAY;
-        DayOfWeek thursday = DayOfWeek.THURSDAY;
-        DayOfWeek friday = DayOfWeek.FRIDAY;
-        DayOfWeek saturday = DayOfWeek.SATURDAY;
 
         String[] dogHabits = {"woofing", "protect house", "having a walk"};
         String[] catHabits = {"eat chicken", "drink a milk", "sleep a lot"};
