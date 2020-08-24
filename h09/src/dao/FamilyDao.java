@@ -9,5 +9,5 @@ public interface FamilyDao {
     Family getFamilyByIndex(int index);
     boolean deleteFamily(int index);
     boolean deleteFamily(Family family);
-    void saveFamily(Family family);
+    boolean saveFamily(Family family);
 }

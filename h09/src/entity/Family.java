@@ -2,23 +2,30 @@ package entity;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 public class Family {
     private Human mother;
     private Human father;
     private List<Object> children;
-    private Set<Object> pet;
+    public List<Pet> pets;
 
 
-    public Family(Human mother, Human father, List<Object> children, Set<Object> pet) {
+    public Family() {
+    }
+
+    public Family(Human mother, Human father) {
+        this.mother = mother;
+        this.father = father;
+    }
+
+    public Family(Human mother, Human father, List<Object> children, List<Pet> pets) {
         this.mother = mother;
         this.father = father;
         this.children = children;
-        this.pet = pet;
+        this.pets = pets;
     }
 
- // Setter and getters
+    // Setter and getters
     public Human getMother() {
         return mother;
     }
@@ -43,12 +50,12 @@ public class Family {
         this.children = children;
     }
 
-    public Set<Object> getPet() {
-        return pet;
+    public List<Pet> getPets() {
+        return pets;
     }
 
-    public void setPet(Set<Object> pet) {
-        this.pet = pet;
+    public void setPets(List<Pet> pets) {
+        this.pets = pets;
     }
 
     public void addChild(Human child) {
@@ -65,6 +72,10 @@ public class Family {
         return count;
     }
 
+    public int addPet() {
+        return 1;
+    }
+
 
 
     @Override
@@ -73,7 +84,7 @@ public class Family {
                 "mother: " + mother + "; " + '\n' +
                 "father: " + father + "; " + '\n' +
                 "children: " + children + "; " + '\n' +
-                "pet=" + pet +  "; " + '\n' +
+                "pet=" + pets +  "; " + '\n' +
                 '}';
     }
 
@@ -97,7 +108,7 @@ public class Family {
                             +"mother =" + mother
                             + ", father =" + father
                             + ", children =" + children
-                            + ", pet = " + pet
+                            + ", pet = " + pets
                             + '}' + "destroyed" + '\n');
     }
 }

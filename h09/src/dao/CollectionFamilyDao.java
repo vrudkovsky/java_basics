@@ -40,8 +40,9 @@ public class CollectionFamilyDao implements FamilyDao {
     }
 
     @Override
-    public void saveFamily(Family family) {
+    public boolean saveFamily(Family family) {
         // update current DB
+        return true;
     }
 
     @Override
