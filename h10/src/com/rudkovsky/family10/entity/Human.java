@@ -1,5 +1,10 @@
 package com.rudkovsky.family10.entity;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -7,16 +12,16 @@ import java.util.Objects;
 public class Human {
     private String name;
     private String surname;
-    private int year;
+    private int birthDate;
     private int iq;
     private Map<String, String> schedule = new HashMap<>();
-    private com.rudkovsky.family10.entity.Pet pet;
-    private com.rudkovsky.family10.entity.Family family;
+    private Pet pet;
+    private Family family;
 
     public Human(String name, String surname, int year) {
         this.name = name;
         this.surname = surname;
-        this.year = year;
+        this.birthDate = year;
     }
 
     public Human(String name, String surname, int year, int iq) {
@@ -24,12 +29,12 @@ public class Human {
         this.iq = iq;
     }
 
-    public Human(String name, String surname, int year, int iq, com.rudkovsky.family10.entity.Pet pet) {
+    public Human(String name, String surname, int year, int iq, Pet pet) {
         this(name, surname, year, iq);
         this.pet = pet;
     }
 
-    public Human(String name, String surname, int year, int iq, com.rudkovsky.family10.entity.Pet pet, Map<String, String> schedule) {
+    public Human(String name, String surname, int year, int iq, Pet pet, Map<String, String> schedule) {
         this(name,surname, year, iq, pet);
         this.schedule = schedule;
     }
@@ -70,12 +75,12 @@ public class Human {
         this.surname = surname;
     }
 
-    public int getYear() {
-        return year;
+    public int getBirthDate() {
+        return birthDate;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setBirthDate(int birthDate) {
+        this.birthDate = birthDate;
     }
 
     public int getIq() {
@@ -87,12 +92,12 @@ public class Human {
     }
 
     public Map<String, String> getSchedule() {
-        schedule.put(String.valueOf(com.rudkovsky.family10.entity.DayOfWeek.MONDAY), null);
-        schedule.put(String.valueOf(com.rudkovsky.family10.entity.DayOfWeek.TUESDAY), null);
-        schedule.put(String.valueOf(com.rudkovsky.family10.entity.DayOfWeek.WEDNESDAY), null);
-        schedule.put(String.valueOf(com.rudkovsky.family10.entity.DayOfWeek.THURSDAY), null);
-        schedule.put(String.valueOf(com.rudkovsky.family10.entity.DayOfWeek.FRIDAY), null);
-        schedule.put(String.valueOf(com.rudkovsky.family10.entity.DayOfWeek.SATURDAY), null);
+        schedule.put(String.valueOf(DayOfWeek.MONDAY), null);
+        schedule.put(String.valueOf(DayOfWeek.TUESDAY), null);
+        schedule.put(String.valueOf(DayOfWeek.WEDNESDAY), null);
+        schedule.put(String.valueOf(DayOfWeek.THURSDAY), null);
+        schedule.put(String.valueOf(DayOfWeek.FRIDAY), null);
+        schedule.put(String.valueOf(DayOfWeek.SATURDAY), null);
         schedule.put(String.valueOf(DayOfWeek.SUNDAY), null);
 
         return schedule;
@@ -102,7 +107,7 @@ public class Human {
         this.schedule = schedule;
     }
 
-    public com.rudkovsky.family10.entity.Pet getPet() {
+    public Pet getPet() {
         return pet;
     }
 
@@ -110,7 +115,7 @@ public class Human {
         this.pet = pet;
     }
 
-    public com.rudkovsky.family10.entity.Family getFamily() {
+    public Family getFamily() {
         return family;
     }
 
@@ -118,11 +123,18 @@ public class Human {
         this.family = family;
     }
 
+    public String describeAge() {
+        LocalDate birthDate = Instant.ofEpochMilli(this.birthDate).atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate currDate = Instant.ofEpochMilli(new Date().getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+        Period period = Period.between(birthDate, currDate);
+        return period.getDays() + "- days " + period.getMonths() + "-month " + period.getYears() + "-years ";
+    }
+
     @Override
     public String toString() {
         return  "Human {" + "name = " + this.name  + ", "
                 + "surname = " + this.surname + ", "
-                + "year = " + this.year + ", "
+                + "birthDate = " + this.birthDate + ", "
                 + "iq = " + this.iq + ", "
                 + "schedule = " + schedule
                 + "}" + '\n';
@@ -133,7 +145,7 @@ public class Human {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Human human = (Human) o;
-        return year == human.year &&
+        return birthDate == human.birthDate &&
                 iq == human.iq &&
                 name.equals(human.name) &&
                 surname.equals(human.surname);
@@ -141,7 +153,7 @@ public class Human {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, surname, year, family);
+        return Objects.hash(name, surname, birthDate, family);
     }
 
     @Override
@@ -149,7 +161,7 @@ public class Human {
         System.out.println(
                         "Human: {" + "name = " + this.name  + ", "
                         + "surname = " + this.surname + ", "
-                        + "year = " + this.year + ", "
+                        + "year = " + this.birthDate + ", "
                         + "iq = " + this.iq + ", "
                         + "schedule = " + schedule
                         + "}"+ "destroyed" + '\n');
