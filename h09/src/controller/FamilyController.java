@@ -62,7 +62,7 @@ public class FamilyController {
     }
 
     public int count() {
-        return this.familyService.getAllFamilies().size();
+        return this.familyService.count();
     }
 
     public  Family getFamilyById(int familyId) {
