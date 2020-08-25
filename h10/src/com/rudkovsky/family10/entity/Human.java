@@ -1,5 +1,7 @@
 package com.rudkovsky.family10.entity;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.Period;
@@ -12,35 +14,48 @@ import java.util.Objects;
 public class Human {
     private String name;
     private String surname;
-    private int birthDate;
+    private long birthDate;
     private int iq;
     private Map<String, String> schedule = new HashMap<>();
     private Pet pet;
     private Family family;
 
-    public Human(String name, String surname, int year) {
+    public Human(String name, String surname, long birthDate) {
         this.name = name;
         this.surname = surname;
-        this.birthDate = year;
+        this.birthDate = birthDate;
     }
 
-    public Human(String name, String surname, int year, int iq) {
-        this(name, surname, year);
+    public Human(String name, String surname, long birthDate, int iq) {
+        this(name, surname, birthDate);
         this.iq = iq;
     }
 
-    public Human(String name, String surname, int year, int iq, Pet pet) {
-        this(name, surname, year, iq);
+    public Human(String name, String surname, long birthDate, int iq, Pet pet) {
+        this(name, surname, birthDate, iq);
         this.pet = pet;
     }
 
-    public Human(String name, String surname, int year, int iq, Pet pet, Map<String, String> schedule) {
-        this(name,surname, year, iq, pet);
+    public Human(String name, String surname, long birthDate, int iq, Pet pet, Map<String, String> schedule) {
+        this(name,surname, birthDate, iq, pet);
         this.schedule = schedule;
     }
 
-    public Human(String name, String surname, int year, int iq, Map<String, String> schedule1) {
+    public Human(String name, String surname, String birthDay, int iq) throws ParseException {
+        this.name = name;
+        this.surname = surname;
+        Date date = new SimpleDateFormat("dd/MM/yyyy").parse(birthDay);
+        this.birthDate = date.getTime();
+    }
 
+    public Human(String name, String surname, long birthDate, int iq, Map<String, String> schedule, Pet pet, Family family) {
+        this.name = name;
+        this.surname = surname;
+        this.birthDate = birthDate;
+        this.iq = iq;
+        this.schedule = schedule;
+        this.pet = pet;
+        this.family = family;
     }
 
     void greetPet() {
@@ -75,11 +90,11 @@ public class Human {
         this.surname = surname;
     }
 
-    public int getBirthDate() {
+    public long getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(int birthDate) {
+    public void setBirthDate(long birthDate) {
         this.birthDate = birthDate;
     }
 
@@ -130,11 +145,17 @@ public class Human {
         return period.getDays() + "- days " + period.getMonths() + "-month " + period.getYears() + "-years ";
     }
 
+    public String BirthDateFormat() {
+        Date date = new Date(this.birthDate);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        return simpleDateFormat.format(date);
+    }
+
     @Override
     public String toString() {
         return  "Human {" + "name = " + this.name  + ", "
                 + "surname = " + this.surname + ", "
-                + "birthDate = " + this.birthDate + ", "
+                + "Birth Day = " + this.birthDate + ", "
                 + "iq = " + this.iq + ", "
                 + "schedule = " + schedule
                 + "}" + '\n';
@@ -161,7 +182,7 @@ public class Human {
         System.out.println(
                         "Human: {" + "name = " + this.name  + ", "
                         + "surname = " + this.surname + ", "
-                        + "year = " + this.birthDate + ", "
+                        + "year = " + this.BirthDateFormat() + ", "
                         + "iq = " + this.iq + ", "
                         + "schedule = " + schedule
                         + "}"+ "destroyed" + '\n');
