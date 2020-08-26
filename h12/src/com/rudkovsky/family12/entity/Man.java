@@ -1,5 +1,6 @@
 package com.rudkovsky.family12.entity;
 
+import java.text.ParseException;
 import java.util.HashMap;
 
 public class Man extends Human {
@@ -14,6 +15,12 @@ public class Man extends Human {
     public Man(String name, String surname, long birthDate, int iq, Pet pet, HashMap<String, String> schedule) {
         super(name, surname, birthDate, iq, pet, schedule);
     }
+
+    public Man(String childName, String childSurname, String birthDaySum, Integer childIq) throws ParseException {
+        super(childName, childSurname, birthDaySum, childIq);
+    }
+
+
 
     public void repairCar(){
         System.out.println("I have to fix my car now");

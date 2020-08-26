@@ -77,4 +77,11 @@ public class FamilyController {
         this.familyService.getFamilyById(familyIndex).addPet();
     }
 
+    public int countFamiliesWithMemberNumber(Integer membersQty) {
+        return 0;
+    }
+
+    public void deleteAllChildrenOlderThen(Integer childAgeToDelete) {
+
+    }
 }

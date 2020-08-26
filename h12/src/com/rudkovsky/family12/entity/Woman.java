@@ -1,5 +1,6 @@
 package com.rudkovsky.family12.entity;
 
+import java.text.ParseException;
 import java.util.HashMap;
 
 public class Woman extends Human {
@@ -13,6 +14,10 @@ public class Woman extends Human {
 
     public Woman(String name, String surname, int year, int iq, Pet pet, HashMap<String, String> schedule) {
         super(name, surname, year, iq, pet, schedule);
+    }
+
+    public Woman(String motherName, String motherSurname, String motherBirth, Integer motherIq) throws ParseException {
+        super(motherName, motherSurname, motherBirth, motherIq);
     }
 
     public void makeup(){
@@ -36,5 +41,9 @@ public class Woman extends Human {
                 "family = " + this.getFamily() + "; \n" +
                 "pet = " + this.getPet() +
                 '}';
+    }
+
+    private String getYear() {
+        return null;
     }
 }
