@@ -7,6 +7,7 @@ import com.rudkovsky.family11.entity.Pet;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class FamilyService {
     private final CollectionFamilyDao collectionFamilyDao;
@@ -15,31 +16,26 @@ public class FamilyService {
         this.collectionFamilyDao = collectionFamilyDao;
     }
 
+
     public List<Family> getAllFamilies(CollectionFamilyDao collectionFamilyDao) {
         return this.collectionFamilyDao.getAllFamilies();
     }
 
     public void displayAllFamilies() {
-        System.out.println(collectionFamilyDao.toString());
+        this.collectionFamilyDao.getAllFamilies().forEach(f-> System.out.println(f.toString()));
     }
 
     public List<Family> getFamiliesBiggerThan(int count) {
-        List<Family> sortedList = new ArrayList<>();
-        for (Family family : this.collectionFamilyDao.getAllFamilies()) {
-            if (family.countFamily() > count)
-                sortedList.add(family);
-        }
-        return sortedList;
+        return this.collectionFamilyDao.getAllFamilies().stream()
+                .filter(f->f.countFamily() < count)
+                .collect(Collectors.toList());
     }
 
     public List<Family> getFamiliesLessThan (int count) {
-        List<Family> sortedList = new ArrayList<>();
-        for (Family family : this.collectionFamilyDao.getAllFamilies()) {
-            if (family.countFamily() < count)
-                sortedList.add(family);
+        return this.collectionFamilyDao.getAllFamilies().stream()
+                .filter(f->f.countFamily() > count)
+                .collect(Collectors.toList());
         }
-        return sortedList;
-    }
 
     public boolean createNewFamily(Human father, Human mother) {
         return this.collectionFamilyDao.saveFamily(new Family(mother, father));
@@ -66,6 +62,11 @@ public class FamilyService {
         return this.collectionFamilyDao.getAllFamilies().size();
     }
 
+    public long countFamiliesWithMemberNumber(int count){
+        return this.collectionFamilyDao.getAllFamilies().stream()
+                .filter(f->f.countFamily() == count).count();
+    }
+
     public Family getFamilyById(int familyId) {
         return this.collectionFamilyDao.getFamilyByIndex(familyId);
     }
@@ -77,5 +78,7 @@ public class FamilyService {
     public void addPet(int familyIndex, Pet pet) {
         this.collectionFamilyDao.getFamilyByIndex(familyIndex).addPet();
     }
+
+
 
 }
