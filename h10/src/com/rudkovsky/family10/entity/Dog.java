@@ -3,14 +3,14 @@ package com.rudkovsky.family10.entity;
 import java.util.Set;
 
 public class Dog extends Pet implements Foul {
-    private com.rudkovsky.family10.entity.Species species = com.rudkovsky.family10.entity.Species.DOG;
+    private Species species = Species.DOG;
 
     public Dog(String nickname, int age, int trickLevel, Set<String> habits) {
         super(nickname, age, trickLevel, habits);
     }
 
 
-    public com.rudkovsky.family10.entity.Species getSpecies() {
+    public Species getSpecies() {
         return species;
     }
 

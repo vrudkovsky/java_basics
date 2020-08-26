@@ -6,14 +6,14 @@ import com.rudkovsky.family10.entity.Species;
 import java.util.Set;
 
 public class Fish extends Pet {
-    private com.rudkovsky.family10.entity.Species species = com.rudkovsky.family10.entity.Species.FISH;
+    private Species species = Species.FISH;
 
      public  Fish(String name, int age, int trickLevel, Set<String> habbits) {
         super(name, age, trickLevel, habbits);
     }
 
 
-    public com.rudkovsky.family10.entity.Species getSpecies() {
+    public Species getSpecies() {
         return species;
     }
 

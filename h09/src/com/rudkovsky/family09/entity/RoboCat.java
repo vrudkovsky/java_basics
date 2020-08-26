@@ -7,7 +7,7 @@ import com.rudkovsky.family10.entity.Species;
 import java.util.Set;
 
 public class RoboCat extends Pet implements Foul {
-    public com.rudkovsky.family10.entity.Species species = Species.ROBOCAT;
+    public Species species = Species.ROBOCAT;
 
     public RoboCat(String nickname, int age, int trickLevel, Set<String> habits) {
         super(nickname, age, trickLevel, habits);

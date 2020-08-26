@@ -10,7 +10,7 @@ public class Man extends Human {
         super(name, surname, year, iq);
     }
 
-    public Man(String name, String surname, int year, int iq, com.rudkovsky.family10.entity.Pet pet) {
+    public Man(String name, String surname, int year, int iq, Pet pet) {
         super(name, surname, year, iq, pet);
     }
 

@@ -1,12 +1,12 @@
-package com.rudkovsky.family10.entity;
+package com.rudkovsky.family11.entity;
 
 import java.util.Set;
 
-public class Fish extends Pet {
-    private Species species = Species.FISH;
+public class Dog extends Pet implements Foul {
+    private Species species = Species.DOG;
 
-     public  Fish(String name, int age, int trickLevel, Set<String> habbits) {
-        super(name, age, trickLevel, habbits);
+    public Dog(String nickname, int age, int trickLevel, Set<String> habits) {
+        super(nickname, age, trickLevel, habits);
     }
 
 
@@ -19,13 +19,18 @@ public class Fish extends Pet {
     }
 
     @Override
+    public void foul() {
+        System.out.println("Need to cover my tracks well ...");
+    }
+
+    @Override
     public void respond() {
-        System.out.println("Hello. I'm " + super.getNickname() + " your fish.");
+        System.out.println("Hey! I'm " +super.getNickname() + ", your " + species);
     }
 
     @Override
     public String toString() {
-        return  species + "{" +
+        return  species + ": " + "{" +
                 "species=" + species +
                 ", nickname='" + super.getNickname() + '\'' +
                 ", age=" + super.getAge() +
@@ -33,4 +38,5 @@ public class Fish extends Pet {
                 ", habits=" + habits +
                 '}';
     }
+
 }

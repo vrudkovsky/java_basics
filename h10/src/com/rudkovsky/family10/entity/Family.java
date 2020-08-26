@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Objects;
 
 public class Family {
-    private com.rudkovsky.family10.entity.Human mother;
-    private com.rudkovsky.family10.entity.Human father;
+    private Human mother;
+    private Human father;
     private List<Object> children;
     public List<com.rudkovsky.family10.entity.Pet> pets;
 
@@ -13,12 +13,12 @@ public class Family {
     public Family() {
     }
 
-    public Family(com.rudkovsky.family10.entity.Human mother, com.rudkovsky.family10.entity.Human father) {
+    public Family(Human mother, Human father) {
         this.mother = mother;
         this.father = father;
     }
 
-    public Family(com.rudkovsky.family10.entity.Human mother, com.rudkovsky.family10.entity.Human father, List<Object> children, List<com.rudkovsky.family10.entity.Pet> pets) {
+    public Family(Human mother, Human father, List<Object> children, List<com.rudkovsky.family10.entity.Pet> pets) {
         this.mother = mother;
         this.father = father;
         this.children = children;
@@ -26,19 +26,19 @@ public class Family {
     }
 
     // Setter and getters
-    public com.rudkovsky.family10.entity.Human getMother() {
+    public Human getMother() {
         return mother;
     }
 
-    public void setMother(com.rudkovsky.family10.entity.Human mother) {
+    public void setMother(Human mother) {
         this.mother = mother;
     }
 
-    public com.rudkovsky.family10.entity.Human getFather() {
+    public Human getFather() {
         return father;
     }
 
-    public void setFather(com.rudkovsky.family10.entity.Human father) {
+    public void setFather(Human father) {
         this.father = father;
     }
 
@@ -58,7 +58,7 @@ public class Family {
         this.pets = pets;
     }
 
-    public void addChild(com.rudkovsky.family10.entity.Human child) {
+    public void addChild(Human child) {
         children.add(child);
     }
 

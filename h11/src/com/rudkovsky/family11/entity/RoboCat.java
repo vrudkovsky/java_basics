@@ -1,14 +1,11 @@
-package com.rudkovsky.family09.entity;
-
-import com.rudkovsky.family10.entity.Pet;
-import com.rudkovsky.family10.entity.Species;
+package com.rudkovsky.family11.entity;
 
 import java.util.Set;
 
-public class Unknown extends Pet {
-    public Species species = Species.UNKNOWN;
+public class RoboCat extends Pet implements Foul {
+    public Species species = Species.ROBOCAT;
 
-    public Unknown(String nickname, int age, int trickLevel, Set<String> habits) {
+    public RoboCat(String nickname, int age, int trickLevel, Set<String> habits) {
         super(nickname, age, trickLevel, habits);
     }
 
@@ -19,12 +16,17 @@ public class Unknown extends Pet {
 
     @Override
     public String toString() {
-        return "Unknown7{" +
-                "species7=" + species +
+        return  species + ": " + "{" +
+                "species=" + species +
                 ", nickname='" + super.getNickname() + '\'' +
                 ", age=" + super.getAge() +
                 ", trickLevel=" + super.getTrickLevel() +
-                ", habits=" + habits+
+                ", habits=" + habits +
                 '}';
+    }
+
+    @Override
+    public void foul() {
+        System.out.println("Need to cover my tracks well ...");
     }
 }

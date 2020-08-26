@@ -1,7 +1,4 @@
-package com.rudkovsky.family09.entity;
-
-import com.rudkovsky.family10.entity.Human;
-import com.rudkovsky.family10.entity.Pet;
+package com.rudkovsky.family11.entity;
 
 import java.util.List;
 import java.util.Objects;
@@ -95,7 +92,7 @@ public class Family {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        com.rudkovsky.family10.entity.Family family = (com.rudkovsky.family10.entity.Family) o;
+        Family family = (Family) o;
         return mother.equals(family.mother) &&
                 father.equals(family.father);
     }

@@ -1,21 +1,21 @@
-package com.rudkovsky.family10.dao;
+package com.rudkovsky.family11.dao;
 
-import com.rudkovsky.family10.entity.Family;
+import com.rudkovsky.family11.entity.Family;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CollectionFamilyDao implements FamilyDao {
-    private final List<com.rudkovsky.family10.entity.Family> families = new ArrayList<>();
+    private final List<Family> families = new ArrayList<>();
 
 
     @Override
-    public List<com.rudkovsky.family10.entity.Family> getAllFamilies() {
+    public List<Family> getAllFamilies() {
         return this.families;
     }
 
     @Override
-    public com.rudkovsky.family10.entity.Family getFamilyByIndex(int index) {
+    public Family getFamilyByIndex(int index) {
         return this.families.get(index);
     }
 
@@ -31,7 +31,7 @@ public class CollectionFamilyDao implements FamilyDao {
     }
 
     @Override
-    public boolean deleteFamily(com.rudkovsky.family10.entity.Family family) {
+    public boolean deleteFamily(Family family) {
         if (families.contains(family)) {
             families.remove(family);
             return true;

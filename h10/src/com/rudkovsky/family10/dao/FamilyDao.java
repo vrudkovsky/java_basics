@@ -5,9 +5,9 @@ import com.rudkovsky.family10.entity.Family;
 import java.util.List;
 
 public interface FamilyDao {
-    List<Family> getAllFamilies();
-    Family getFamilyByIndex(int index);
+    List<com.rudkovsky.family10.entity.Family> getAllFamilies();
+    com.rudkovsky.family10.entity.Family getFamilyByIndex(int index);
     boolean deleteFamily(int index);
-    boolean deleteFamily(Family family);
+    boolean deleteFamily(com.rudkovsky.family10.entity.Family family);
     boolean saveFamily(Family family);
 }

@@ -1,7 +1,4 @@
-package com.rudkovsky.family09.entity;
-
-import com.rudkovsky.family10.entity.Pet;
-import com.rudkovsky.family10.entity.Species;
+package com.rudkovsky.family11.entity;
 
 import java.util.Set;
 

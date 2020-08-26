@@ -1,4 +1,4 @@
-package com.rudkovsky.family10.entity;
+package com.rudkovsky.family11.entity;
 
 import java.util.Set;
 

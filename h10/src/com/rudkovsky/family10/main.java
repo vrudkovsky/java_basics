@@ -8,7 +8,7 @@ public class main {
     public static void main(String[] args) {
         CollectionFamilyDao collectionFamilyDao = new CollectionFamilyDao();
         FamilyService familyService = new FamilyService(collectionFamilyDao);
-        FamilyController familyController = new FamilyController(familyService);
+        com.rudkovsky.family10.controller.FamilyController familyController = new FamilyController(familyService);
 
         familyController = null;
     }
