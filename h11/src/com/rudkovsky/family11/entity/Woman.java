@@ -30,7 +30,7 @@ public class Woman extends Human {
         return  "Woman: {" +
                 "name = " + this.getName() + "; " +
                 "surname = " + this.getSurname() + "; " +
-                "year = " + this.getYear() + "; " +
+//                "year = " + this.getYear() + "; " +
                 "iq = " + this.getIq() + "; \n" +
                 "schedule = " + this.getSchedule() + "; \n" +
                 "family = " + this.getFamily() + "; \n" +

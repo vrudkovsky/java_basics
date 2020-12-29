@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Objects;
 
 public class Family {
-    private Human mother;
-    private Human father;
+    public Human mother;
+    public Human father;
     private List<Object> children;
     public List<com.rudkovsky.family10.entity.Pet> pets;
 

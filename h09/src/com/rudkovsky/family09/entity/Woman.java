@@ -23,7 +23,7 @@ public class Woman extends Human {
     }
 
     @Override
-    void greetPet() {
+    protected void greetPet() {
         super.greetPet();
         System.out.println("Hey sweety" + super.getPet() + ". How are you, body?");
     }
@@ -33,7 +33,7 @@ public class Woman extends Human {
         return  "Woman: {" +
                 "name = " + this.getName() + "; " +
                 "surname = " + this.getSurname() + "; " +
-                "year = " + this.getYear() + "; " +
+//                "year = " + this.getYear() + "; " +
                 "iq = " + this.getIq() + "; \n" +
                 "schedule = " + this.getSchedule() + "; \n" +
                 "family = " + this.getFamily() + "; \n" +

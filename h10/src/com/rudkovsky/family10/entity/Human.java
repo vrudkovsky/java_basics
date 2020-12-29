@@ -58,7 +58,7 @@ public class Human {
         this.family = family;
     }
 
-    void greetPet() {
+    protected void greetPet() {
         System.out.println("Hello " + this.pet.getNickname());
     }
 

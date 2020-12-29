@@ -29,7 +29,7 @@ public class Man extends Human {
         return  "Man: {" +
                 "name = " + this.getName() + "; " +
                 "surname = " + getSurname() + "; " +
-                "year = " + getYear() + "; " +
+//                "year = " + getYear() + "; " +
                 "iq = " + getIq() + "; \n" +
                 "schedule = " + getSchedule() + "; \n" +
                 "family = " + getFamily() + "; \n" +

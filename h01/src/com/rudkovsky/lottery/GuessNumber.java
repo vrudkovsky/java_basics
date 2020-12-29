@@ -1,50 +1,70 @@
 package com.rudkovsky.lottery;
 
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Random;
 
 public class GuessNumber {
+    private static String name;
+    private static int randomNumber;
+    private static boolean win = true;
+    private static int numberOfTires = 10;
+    private static final int[] numbers = new int[10];
+
     public static void main(String[] args) {
-        boolean exit = true;
-        String playerName;
+        init();
+        guessNumber(randomNumber);
+        yourNumbers();
+        end();
+    }
 
-        System.out.println("Let the game begin");
+    public static void init() {
+        System.out.println("Let the game begin!");
+        System.out.println(" Please enter your name");
+        Scanner sc = new Scanner(System.in);
+        name = sc.nextLine();
+        System.out.println("Hello " + name + "!!!");
+        //random number
+        Random random = new Random();
+        randomNumber = random.nextInt(100);
+        System.out.println("Random number is " + randomNumber);
+    }
 
-        do {
 
-            // Define random number form 0 to 100
-            Random random = new Random();
-            int number = random.nextInt(100);
+    public static void guessNumber(int rNumber) {
+        System.out.println("Enter number to guess:");
+        while (win && numberOfTires != 0) {
+            Scanner sc = new Scanner(System.in);
+            int userNumber = sc.nextInt();
 
-            //Input player name
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Enter your name: ");
-            playerName = scanner.nextLine();
+            if (userNumber > rNumber) {
+                numberOfTires--;
+                numbers[numberOfTires] = userNumber;
+                System.out.println("Your number is too big. Please, try again.");
+                System.out.println("Number of tires " + numberOfTires);
 
-            //Input player number
-            System.out.println("Enter number: ");
-            int playerNumber = scanner.nextInt();
-
-            //Condition statement of guessing number
-            if (playerNumber < number ) {
-                System.out.println("Your number is too small. Please, try again..");
-            } else if (playerNumber > number) {
-                System.out.println("Your number is too big. Please, try again..");
+            } else if (userNumber < rNumber) {
+                numberOfTires--;
+                numbers[numberOfTires] = userNumber;
+                System.out.println("Your number is too small. Please, try again.");
+                System.out.println("Number of tires " + numberOfTires);
             } else {
-                System.out.println("Congratulations " + playerName + "!");
+                System.out.printf("Congratulations, %s!", name);
+                win = false;
             }
+        }
+    }
 
-            // Answer about exit of the game
-            System.out.println("Do you want to continue? Press Y/N");
-            char answer = scanner.next().charAt(0);
+    public static void yourNumbers() {
+        Arrays.sort(numbers);
+        System.out.println("Your numbers: ");
+        for (int number : numbers) {
+            System.out.print(number + " ");
+        }
+        System.out.println('\n');
+    }
 
-            if (answer == 'N' || answer == 'n') {
-                exit = false;
-            }
-
-         } while (exit);
-
-        System.out.println("Goodbay " + playerName + "!");
-
+    public static void end() {
+        System.out.println("Game over!\n");
     }
 }
