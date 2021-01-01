@@ -1,8 +1,13 @@
 package com.rudkovsky.lottery;
 
+import org.assertj.core.util.Strings;
+import java.util.Collections;
+
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 import java.util.Random;
+import java.util.stream.Stream;
 
 public class GuessNumber {
     private static String name;
@@ -10,6 +15,7 @@ public class GuessNumber {
     private static boolean win = true;
     private static int numberOfTires = 10;
     private static final int[] numbers = new int[10];
+    private static StringBuilder sb = new StringBuilder();
 
     public static void main(String[] args) {
         init();
@@ -39,32 +45,45 @@ public class GuessNumber {
 
             if (userNumber > rNumber) {
                 numberOfTires--;
-                numbers[numberOfTires] = userNumber;
+//                numbers[numberOfTires] = userNumber;
+                sb.append(userNumber + " ");
                 System.out.println("Your number is too big. Please, try again.");
                 System.out.println("Number of tires " + numberOfTires);
 
             } else if (userNumber < rNumber) {
                 numberOfTires--;
-                numbers[numberOfTires] = userNumber;
+//                numbers[numberOfTires] = userNumber;
+                sb.append(userNumber + " ");
                 System.out.println("Your number is too small. Please, try again.");
                 System.out.println("Number of tires " + numberOfTires);
             } else {
-                System.out.printf("Congratulations, %s!", name);
+                System.out.printf("Congratulations, %s!\n", name);
                 win = false;
             }
         }
     }
 
     public static void yourNumbers() {
-        Arrays.sort(numbers);
-        System.out.println("Your numbers: ");
-        for (int number : numbers) {
-            System.out.print(number + " ");
+        String[] arr = sb.toString().split(" ");
+        System.out.println("You have entered the numbers: ");
+        System.out.println(Arrays.toString(convertStringIntoIntArray(arr)));
+
+    }
+
+    public static Integer[] convertStringIntoIntArray(String[] strings) {
+        Integer[] intarray = new Integer[strings.length];
+        int i=0;
+        for(String str:strings){
+            intarray[i]=Integer.parseInt(str.trim());
+            i++;
         }
-        System.out.println('\n');
+        Arrays.sort(intarray,  Collections.reverseOrder());
+        return intarray;
     }
 
     public static void end() {
         System.out.println("Game over!\n");
     }
+
+
 }
