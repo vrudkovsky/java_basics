@@ -60,6 +60,7 @@ public class GuessNumber {
                 System.out.printf("Congratulations, %s!\n", name);
                 win = false;
             }
+            sc.close();
         }
     }
 
