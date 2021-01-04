@@ -23,7 +23,10 @@ public class Solution {
             str[i] = s.substring(i, k + i);
         }
 
-        System.out.println(Arrays.toString(str));
+        Arrays.sort(str);
+        smallest = str[0];
+        largest = str[str.length - 1];
+
         return smallest + "\n" + largest;
     }
 
