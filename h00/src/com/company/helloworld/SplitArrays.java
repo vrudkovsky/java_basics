@@ -39,6 +39,6 @@ public class SplitArrays {
 //        System.out.println("Positive numbers: " + posNumCount);
 //        System.out.println("Negative numbers: " + negNumCount);
 
-        // Вывести их на экран
+        // send it in standart output
     }
 }
