@@ -1,122 +1,133 @@
 package com.rudkovsky.family05;
 
 import java.util.Arrays;
-import java.util.Objects;
 
 public class Human {
+    private String familyMember;
     private String name;
     private String surname;
     private int year;
     private int iq;
-    private String[][] schedule = new String[7][2];
-    private Pet pet = new Pet();
     private Family family;
+    private String[][] schedule = new String[7][2];
 
-    public Human(String name, String surname, int year) {
+    public Human() {
+    };
+
+    public Human(String familyMember, String name, String surname, int year) {
+        this.familyMember = familyMember;
         this.name = name;
         this.surname = surname;
         this.year = year;
-    }
+    };
 
-    public Human(String name, String surname, int year, int iq) {
-        this(name, surname, year);
+    public Human(String familyMember, String name, String surname, int year, Family family) {
+        this.familyMember = familyMember;
+        this.name = name;
+        this.surname = surname;
+        this.year = year;
+        this.family = family;
+    };
+
+    public Human(String familyMember, String name, String surname, int year, int iq, Family family) {
+        this.familyMember = familyMember;
+        this.name = name;
+        this.surname = surname;
+        this.year = year;
         this.iq = iq;
-    }
+        this.family = family;
+    };
 
-    public Human(String name, String surname, int year, int iq, Pet pet) {
-        this(name, surname, year, iq);
-        this.pet = pet;
-    }
+    public Human(String familyMember, String name, String surname, int year, int iq, Family family, String[][] schedule) {
+        this.familyMember = familyMember;
+        this.name = name;
+        this.surname = surname;
+        this.year = year;
+        this.iq = iq;
+        this.family = family;
+        this.schedule = schedule;
+    };
 
-    void greetPet() {
-        System.out.println("Hello " + this.pet.getNickname());
-    }
+    public String getFamilyMember() {
+        return this.familyMember;
+    };
 
-    void describePet() {
-        System.out.println("I have " + this.pet.getNickname() + "His is " + this.pet.getAge() + " years old");
-        if (this.pet.getTrickLevel() >= 50) {
-            System.out.print("He is very tricky");
-            System.out.print('\n');
-        } else {
-            System.out.print("He is almost tricky");
-            System.out.print('\n');
-        }
-    }
-
+    public void setFamilyMember(String familyMember) {
+        this.familyMember = familyMember;
+    };
 
     public String getName() {
-        return name;
-    }
+        return this.name;
+    };
 
     public void setName(String name) {
         this.name = name;
-    }
+    };
 
     public String getSurname() {
-        return surname;
-    }
+        return this.surname;
+    };
 
     public void setSurname(String surname) {
         this.surname = surname;
-    }
+    };
 
     public int getYear() {
-        return year;
-    }
+        return this.year;
+    };
 
     public void setYear(int year) {
         this.year = year;
-    }
+    };
 
     public int getIq() {
-        return iq;
-    }
+        return this.iq;
+    };
 
     public void setIq(int iq) {
         this.iq = iq;
-    }
-
-    public String[][] getSchedule() {
-        return schedule;
-    }
-
-    public void setSchedule(String[][] schedule) {
-        this.schedule = schedule;
-    }
+    };
 
     public Family getFamily() {
         return family;
-    }
+    };
 
     public void setFamily(Family family) {
         this.family = family;
-    }
+    };
+
+    public String[][] getSchedule() {
+        return schedule;
+    };
+
+    public void setSchedule(String[][] schedule) {
+        this.schedule = schedule;
+    };
+
+    public void greetPet() {
+        System.out.println("Hello " + family.getPet().getNickname());
+    };
+
+    public void describePet() {
+        System.out.println("I have " + family.getPet().getSpecies() +
+                            ". He is " + family.getPet().getAge() + " years old and " +
+                            ((family.getPet().getTrickLevel() > 50) ? "very tricky" : "almost tricky"));
+    };
+
+    public void feedPet() {
+        System.out.println("Here is your food " + family.getPet().getNickname());
+    };
+
 
     @Override
     public String toString() {
-        return  "Human {" + "name = " + this.name  + ", "
+        String text = "";
+        text += this.familyMember + " {" + "name = " + this.name  + ", "
                 + "surname = " + this.surname + ", "
                 + "year = " + this.year + ", "
-                + "iq = " + this.iq
+                + "iq = " + this.iq + ", "
+                + "schedule=" + Arrays.toString(schedule) + ", "
                 + "}" + '\n';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Human human = (Human) o;
-        return year == human.year &&
-                iq == human.iq &&
-                name.equals(human.name) &&
-                surname.equals(human.surname) &&
-                Arrays.equals(schedule, human.schedule);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = Objects.hash(name, surname, year, iq);
-        result = 31 * result + Arrays.hashCode(schedule);
-        return result;
-    }
+        return text;
+    };
 }
