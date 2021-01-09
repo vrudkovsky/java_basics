@@ -110,7 +110,7 @@ public class Human {
 
     public void describePet() {
         System.out.println("I have " + family.getPet().getSpecies() +
-                            ". He is " + family.getPet().getAge() + " years old and " +
+                            ". He is name is " + family.getPet().getNickname() + " years old and he is " +
                             ((family.getPet().getTrickLevel() > 50) ? "very tricky" : "almost tricky"));
     };
 
@@ -126,8 +126,20 @@ public class Human {
                 + "surname = " + this.surname + ", "
                 + "year = " + this.year + ", "
                 + "iq = " + this.iq + ", "
-                + "schedule=" + Arrays.toString(schedule) + ", "
+                + "schedule=" + Arrays.deepToString(schedule) + ", "
                 + "}" + '\n';
         return text;
     };
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Human human = (Human) obj;
+        return year == human.year &&
+                iq == human.iq &&
+                name.equals(human.name) &&
+                surname.equals(human.surname) &&
+                Arrays.equals(schedule, human.schedule);
+    }
 }

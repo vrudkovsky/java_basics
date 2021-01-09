@@ -26,6 +26,7 @@ public class WeekSchedule {
 
 
         while (!exit) {
+            System.out.println(Arrays.deepToString(schedule));
             System.out.println("Please, input the day of the week or exit: ");
             String answer = scanner.next();
 
