@@ -14,6 +14,15 @@ public class Main {
 //        dog.respond();
 //        dog.foul();
 
+        //Days of the week
+        DayOfWeek sanday = DayOfWeek.SUNDAY;
+        DayOfWeek monday = DayOfWeek.MONDAY;
+        DayOfWeek thuesday = DayOfWeek.TUESDAY;
+        DayOfWeek wednesday = DayOfWeek.WEDNESDAY;
+        DayOfWeek thursday = DayOfWeek.THURSDAY;
+        DayOfWeek friday = DayOfWeek.FRIDAY;
+        DayOfWeek saturday = DayOfWeek.SATURDAY;
+
         //Creating Family
         Human father = new Human("father", "Homes", "Addams", 1977);
         Human mother = new Human("mother", "Morticia", "Addams", 1979);
@@ -26,30 +35,30 @@ public class Main {
         addams.addChild(son);
         //init father schedule
         String[][] fatherSchedule = new String[][]{
-                { "sunday", "get to work", "go home" },
-                { "monday", "fitness club", "running" },
-                { "Wednesday", "watching TV", "dinner" }
+                { sanday.name(), "get to work", "go home" },
+                { monday.name(), "fitness club", "running" },
+                { wednesday.name(), "watching TV", "dinner" }
         };
         father.setSchedule(fatherSchedule);
         //init mother schedule
         String[][] motherSchedule = new String[][]{
-                { "sunday", "cleaning", "walking" },
-                { "monday", "cooking", "washing" },
-                { "Wednesday", "cinema", "take a rest" }
+                { sanday.name(), "cleaning", "walking" },
+                { monday.name(), "cooking", "washing" },
+                { wednesday.name(), "cinema", "take a rest" }
         };
         mother.setSchedule(motherSchedule);
         //init daughter schedule
         String[][] daughterSchedule = new String[][]{
-                { "sunday", "cleaning", "walking" },
-                { "monday", "cooking", "washing" },
-                { "Wednesday", "cinema", "take a rest" }
+                { sanday.name(), "cleaning", "walking" },
+                { monday.name(), "cooking", "washing" },
+                { wednesday.name(), "cinema", "take a rest" }
         };
         daughter.setSchedule(daughterSchedule);
         //init son schedule
         String[][] sonSchedule = new String[][]{
-                { "sunday", "cleaning", "walking" },
-                { "monday", "cooking", "washing" },
-                { "Wednesday", "cinema", "take a rest" }
+                { sanday.name(), "cleaning", "walking" },
+                { monday.name(), "cooking", "washing" },
+                { wednesday.name(), "cinema", "take a rest" }
         };
         son.setSchedule(sonSchedule);
         //add pet to the family initialised above
