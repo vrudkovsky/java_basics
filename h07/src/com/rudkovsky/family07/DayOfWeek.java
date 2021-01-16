@@ -14,5 +14,3 @@ public enum DayOfWeek {
         return "Days of the week are " + this.name().toLowerCase();
     }
 }
-
-

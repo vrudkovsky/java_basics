@@ -10,6 +10,11 @@ public class RoboCat extends Pet implements Foul {
     }
 
     @Override
+    public void foul() {
+        System.out.println("Need to cover my tracks well ...");
+    }
+
+    @Override
     public void respond() {
         System.out.println("Hey! I'm " + super.getNickname() + ", your " + species);
     }
@@ -23,10 +28,5 @@ public class RoboCat extends Pet implements Foul {
                 ", trickLevel=" + super.getTrickLevel() +
                 ", habits=" + Arrays.toString(super.getHabits()) +
                 '}';
-    }
-
-    @Override
-    public void foul() {
-        System.out.println("Need to cover my tracks well ...");
     }
 }

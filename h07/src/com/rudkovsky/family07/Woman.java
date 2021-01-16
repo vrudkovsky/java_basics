@@ -2,19 +2,18 @@ package com.rudkovsky.family07;
 
 import java.util.Arrays;
 
-public class Woman extends  Human {
-    public Woman(String name, String surname, int year, int iq, Pet pet, String[][] schedule) {
-        super(name, surname, year, iq, pet, schedule);
+public final class Woman extends Human {
+    public Woman(String familyMember, String name, String surname, int year, int iq, Family family, String[][] schedule) {
+        super(familyMember, name, surname, year, iq, family, schedule);
     }
-
     public void makeup(){
         System.out.println("Doing make-up now");
     }
 
     @Override
-    void greetPet() {
+    public void greetPet() {
         super.greetPet();
-        System.out.println("Hey sweety" + super.getPet() + ". How are you, body?");
+        System.out.println("Hey sweety" + super.getFamily().getPet() + ". How are you, body?");
     }
 
     @Override
@@ -26,7 +25,7 @@ public class Woman extends  Human {
                 ", iq = " + super.getIq() +
                 ", schedule = " + Arrays.deepToString(super.getSchedule()) +
                 ", family = " + super.getFamily() +
-                ", pet = " + super.getPet() +
+                ", pet = " + super.getFamily().getPet() +
                 '}';
     }
 }

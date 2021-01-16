@@ -12,10 +12,6 @@ public abstract class Pet {
     public Pet() {
     }
 
-    public Pet(Species species, String nickname) {
-        this.nickname = nickname;
-    }
-
     public Pet(String nickname, int age, int trickLevel, String[] habits) {
         this.nickname = nickname;
         this.age = age;
@@ -63,7 +59,7 @@ public abstract class Pet {
 
     @Override
     public String toString() {
-        return 	"{"
+        return 	" {"
                 + "nickname = " + this.nickname + ", "
                 + "age = " + this.age + ", "
                 + "trickLevel = " + trickLevel + ", \n"
@@ -92,10 +88,10 @@ public abstract class Pet {
     @Override
     protected void finalize() throws Throwable {
         System.out.println(" {"
-                        + "nickname = " + this.nickname + ", "
-                        + "age = " + this.age + ", "
-                        + "trickLevel = " + trickLevel + ", \n"
-                        + "\thabits = " + Arrays.toString(habits)
-                        + "}");
+                + "nickname = " + this.nickname + ", "
+                + "age = " + this.age + ", "
+                + "trickLevel = " + trickLevel + ", \n"
+                + "\thabits = " + Arrays.toString(habits)
+                + "}");
     }
 }

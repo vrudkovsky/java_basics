@@ -3,11 +3,12 @@ package com.rudkovsky.family07;
 import java.util.Arrays;
 
 public class DomesticCat extends Pet implements Foul {
-    public Species species = Species.DOMESTICCAT;
+    private Species species = Species.DOMESTICCAT;
 
     public DomesticCat(String nickname, int age, int trickLevel, String[] habits) {
         super(nickname, age, trickLevel, habits);
     }
+
 
     @Override
     public void respond() {
