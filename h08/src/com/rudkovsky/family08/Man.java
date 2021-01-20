@@ -1,39 +1,30 @@
 package com.rudkovsky.family08;
 
-import java.util.HashMap;
+import java.util.Arrays;
 
-public class Man extends Human {
-    public Man(String name, String surname, int year, int iq) {
-        super(name, surname, year, iq);
+public final class Man extends Human {
+    public Man(String familyMember, String name, String surname, int year, int iq, Family family, String[][] schedule) {
+        super(familyMember, name, surname, year, iq, family, schedule);
     }
-
-    public Man(String name, String surname, int year, int iq, Pet pet) {
-        super(name, surname, year, iq, pet);
-    }
-
-    public Man(String name, String surname, int year, int iq, Pet pet, HashMap<String, String> schedule) {
-        super(name, surname, year, iq, pet, schedule);
-    }
-
     public void repairCar(){
         System.out.println("I have to fix my car now");
     }
 
     @Override
-    void greetPet() {
-        super.greetPet();
+    public void greetPet() {
+        System.out.println("Hey " + super.getFamily().getPet() + ". How are you, body");
     }
 
     @Override
     public String toString() {
-        return  "Man: {" +
-                "name = " + this.getName() + "; " +
-                "surname = " + getSurname() + "; " +
-                "year = " + getYear() + "; " +
-                "iq = " + getIq() + "; \n" +
-                "schedule = " + getSchedule() + "; \n" +
-                "family = " + getFamily() + "; \n" +
-                "pet = " + getPet() +
+        return  this + "{" +
+                "name='" + super.getName() + '\'' +
+                ", surname='" + super.getSurname() + '\'' +
+                ", year=" + super.getYear() +
+                ", iq=" + super.getIq() +
+                ", schedule=" + Arrays.deepToString(super.getSchedule()) +
+                ", family=" + super.getFamily() +
+                ", pet=" + super.getFamily().getPet() +
                 '}';
     }
 }

@@ -1,14 +1,13 @@
 package com.rudkovsky.family08;
 
-import java.util.Set;
+import java.util.Arrays;
 
 public class Dog extends Pet implements Foul {
     private Species species = Species.DOG;
 
-    public Dog(String nickname, int age, int trickLevel, Set<String> habits) {
+    public Dog(Species dog, String nickname, int age, int trickLevel, String[] habits) {
         super(nickname, age, trickLevel, habits);
     }
-
 
     public Species getSpecies() {
         return species;
@@ -25,7 +24,7 @@ public class Dog extends Pet implements Foul {
 
     @Override
     public void respond() {
-        System.out.println("Hey! I'm " +super.getNickname() + ", your " + species);
+        System.out.println("Hey! I'm " + super.getNickname() + ", your " + species);
     }
 
     @Override
@@ -35,8 +34,7 @@ public class Dog extends Pet implements Foul {
                 ", nickname='" + super.getNickname() + '\'' +
                 ", age=" + super.getAge() +
                 ", trickLevel=" + super.getTrickLevel() +
-                ", habits=" + habits +
+                ", habits=" + Arrays.toString(super.getHabits()) +
                 '}';
     }
-
 }

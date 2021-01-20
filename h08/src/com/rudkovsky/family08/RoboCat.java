@@ -1,12 +1,17 @@
 package com.rudkovsky.family08;
 
-import java.util.Set;
+import java.util.Arrays;
 
 public class RoboCat extends Pet implements Foul {
     public Species species = Species.ROBOCAT;
 
-    public RoboCat(String nickname, int age, int trickLevel, Set<String> habits) {
+    public RoboCat(String nickname, int age, int trickLevel, String[] habits) {
         super(nickname, age, trickLevel, habits);
+    }
+
+    @Override
+    public void foul() {
+        System.out.println("Need to cover my tracks well ...");
     }
 
     @Override
@@ -17,16 +22,11 @@ public class RoboCat extends Pet implements Foul {
     @Override
     public String toString() {
         return  species + ": " + "{" +
-                "species=" + species +
+                "species7=" + species +
                 ", nickname='" + super.getNickname() + '\'' +
                 ", age=" + super.getAge() +
                 ", trickLevel=" + super.getTrickLevel() +
-                ", habits=" + habits +
+                ", habits=" + Arrays.toString(super.getHabits()) +
                 '}';
-    }
-
-    @Override
-    public void foul() {
-        System.out.println("Need to cover my tracks well ...");
     }
 }
