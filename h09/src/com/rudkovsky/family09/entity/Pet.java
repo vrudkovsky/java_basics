@@ -1,6 +1,5 @@
 package com.rudkovsky.family09.entity;
 
-import com.rudkovsky.family10.entity.Species;
 
 import java.util.HashSet;
 import java.util.Set;

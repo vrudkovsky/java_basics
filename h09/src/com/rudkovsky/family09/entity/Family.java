@@ -1,8 +1,5 @@
 package com.rudkovsky.family09.entity;
 
-import com.rudkovsky.family10.entity.Human;
-import com.rudkovsky.family10.entity.Pet;
-
 import java.util.List;
 import java.util.Objects;
 

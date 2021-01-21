@@ -1,8 +1,5 @@
 package com.rudkovsky.family09.entity;
 
-import com.rudkovsky.family10.entity.Pet;
-import com.rudkovsky.family10.entity.Species;
-
 import java.util.Set;
 
 public class Fish extends Pet {
