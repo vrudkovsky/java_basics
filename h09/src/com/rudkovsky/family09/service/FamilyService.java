@@ -8,11 +8,14 @@ import com.rudkovsky.family10.entity.Pet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FamilyService {
-    private final CollectionFamilyDao collectionFamilyDao;
+public class FamilyService extends com.rudkovsky.family10.service.FamilyService {
+    private CollectionFamilyDao collectionFamilyDao;
 
     public FamilyService(CollectionFamilyDao collectionFamilyDao) {
         this.collectionFamilyDao = collectionFamilyDao;
+    }
+
+    public FamilyService(com.rudkovsky.family09.dao.CollectionFamilyDao collectionFamilyDao) {
     }
 
     public List<Family> getAllFamilies(CollectionFamilyDao collectionFamilyDao) {
@@ -36,7 +39,7 @@ public class FamilyService {
         List<Family> sortedList = new ArrayList<>();
         for (Family family : this.collectionFamilyDao.getAllFamilies()) {
             if (family.countFamily() < count)
-                sortedList.add(family);
+                sortedList.add(family);`
         }
         return sortedList;
     }
