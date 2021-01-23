@@ -8,7 +8,7 @@ import com.rudkovsky.family10.entity.Pet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FamilyService extends com.rudkovsky.family10.service.FamilyService {
+public class FamilyService {
     private CollectionFamilyDao collectionFamilyDao;
 
     public FamilyService(CollectionFamilyDao collectionFamilyDao) {
@@ -39,7 +39,7 @@ public class FamilyService extends com.rudkovsky.family10.service.FamilyService 
         List<Family> sortedList = new ArrayList<>();
         for (Family family : this.collectionFamilyDao.getAllFamilies()) {
             if (family.countFamily() < count)
-                sortedList.add(family);`
+                sortedList.add(family);
         }
         return sortedList;
     }

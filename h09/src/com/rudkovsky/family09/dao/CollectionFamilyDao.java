@@ -1,12 +1,12 @@
 package com.rudkovsky.family09.dao;
 
-import com.rudkovsky.family10.dao.FamilyDao;
-import com.rudkovsky.family10.entity.Family;
+
+import com.rudkovsky.family09.entity.Family;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CollectionFamilyDao implements FamilyDao {
+public abstract class CollectionFamilyDao implements FamilyDao {
     private final List<Family> families = new ArrayList<>();
 
 
