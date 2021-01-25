@@ -1,6 +1,9 @@
 package com.rudkovsky.family09.entity;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 
 public class Family {
     private Human mother;
