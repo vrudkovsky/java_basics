@@ -1,84 +1,77 @@
 package com.rudkovsky.family09.service;
 
-import com.rudkovsky.family10.dao.CollectionFamilyDao;
-import com.rudkovsky.family10.entity.Family;
-import com.rudkovsky.family10.entity.Human;
-import com.rudkovsky.family10.entity.Pet;
+import com.rudkovsky.family09.dao.IFamilyDao;
+import com.rudkovsky.family09.entity.Family;
+import com.rudkovsky.family09.entity.Human;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FamilyService {
-    private CollectionFamilyDao collectionFamilyDao;
+    private IFamilyDao familyDao;
 
-    public FamilyService(CollectionFamilyDao collectionFamilyDao) {
-        this.collectionFamilyDao = collectionFamilyDao;
+    public FamilyService(IFamilyDao familyDao) {
+        this.familyDao = familyDao;
     }
 
-    public FamilyService(com.rudkovsky.family09.dao.CollectionFamilyDao collectionFamilyDao) {
-    }
-
-    public List<Family> getAllFamilies(CollectionFamilyDao collectionFamilyDao) {
-        return this.collectionFamilyDao.getAllFamilies();
+    public List<Family> getAllFamilies(IFamilyDao familyDao) {
+        return this.familyDao.getAllFamilies();
     }
 
     public void displayAllFamilies() {
-        System.out.println(collectionFamilyDao.toString());
+        System.out.println(familyDao.getAllFamilies());
     }
 
-    public List<Family> getFamiliesBiggerThan(int count) {
-        List<Family> sortedList = new ArrayList<>();
-        for (Family family : this.collectionFamilyDao.getAllFamilies()) {
-            if (family.countFamily() > count)
-                sortedList.add(family);
+    public List<Family> getFamiliesBiggerThan(int number) {
+        List<Family> selectedFamilies = new ArrayList<>();
+        for (Family family : this.familyDao.getAllFamilies()) {
+            if (family.countFamily() > number) {
+                selectedFamilies.add(family);
+            }
         }
-        return sortedList;
+
+        return selectedFamilies;
     }
 
-    public List<Family> getFamiliesLessThan (int count) {
-        List<Family> sortedList = new ArrayList<>();
-        for (Family family : this.collectionFamilyDao.getAllFamilies()) {
-            if (family.countFamily() < count)
-                sortedList.add(family);
+    public List<Family> getFamiliesLessThan(int number) {
+        List<Family> selectedFamilies = new ArrayList<>();
+        for (Family family : this.familyDao.getAllFamilies()) {
+            if (family.countFamily() < number) {
+                selectedFamilies.add(family);
+            }
         }
-        return sortedList;
+
+        return selectedFamilies;
     }
 
-    public boolean createNewFamily(Human father, Human mother) {
-        return this.collectionFamilyDao.saveFamily(new Family(mother, father));
+    public int countFamiliesWithMemberNumber(int number) {
+        int count = 0;
+        for (Family family : this.familyDao.getAllFamilies()) {
+            if (family.countFamily() == number) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public boolean createNewFamily(Human mother, Human father) {
+        return this.familyDao.saveFamily(new Family(mother, father));
     }
 
     public boolean deleteFamilyByIndex(int index) {
-        return this.collectionFamilyDao.deleteFamily(index);
+        return this.familyDao.deleteFamily(index);
     }
 
-    public Family bornChild(Family family, String fatherName, String motherName) {
-        return new Family();
+    public Family bornChild(Family family, String motherName, String fatherName) {
+        family.addChild(new Human("son", "Alex", family.getFather().getSurname(), LocalDateTime.now().getYear(), family));
+         familyDao.saveFamily(family);
+        return family;
     }
 
     public Family adoptChild(Family family, Human child) {
 
         return new Family();
-    }
-
-    public void deleteAllChildrenOlderThan(int age) {
-
-    }
-
-    public int count() {
-        return this.collectionFamilyDao.getAllFamilies().size();
-    }
-
-    public  Family getFamilyById(int familyId) {
-        return this.collectionFamilyDao.getFamilyByIndex(familyId);
-    }
-
-    public List<Pet> getPets(int familyIndex) {
-        return this.collectionFamilyDao.getFamilyByIndex(familyIndex).getPets();
-    }
-
-    public void addPet(int familyIndex, Pet pet) {
-        this.collectionFamilyDao.getFamilyByIndex(familyIndex).addPet();
     }
 
 }

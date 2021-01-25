@@ -1,90 +1,103 @@
 package com.rudkovsky.family09.entity;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 public class Human {
+    private String familyMember;
     private String name;
     private String surname;
     private int year;
     private int iq;
-    private Map<String, String> schedule = new HashMap<>();
-    private Pet pet;
     private Family family;
+    private Map<String, String> schedule = new HashMap<>();
 
-    public Human(String name, String surname, int year) {
+    public Human() {
+    };
+
+    public Human(String familyMember, String name, String surname, int year) {
+        this.familyMember = familyMember;
         this.name = name;
         this.surname = surname;
         this.year = year;
-    }
+    };
 
-    public Human(String name, String surname, int year, int iq) {
-        this(name, surname, year);
+    public Human(String familyMember, String name, String surname, int year, Family family) {
+        this.familyMember = familyMember;
+        this.name = name;
+        this.surname = surname;
+        this.year = year;
+        this.family = family;
+    };
+
+    public Human(String familyMember, String name, String surname, int year, int iq, Family family) {
+        this.familyMember = familyMember;
+        this.name = name;
+        this.surname = surname;
+        this.year = year;
         this.iq = iq;
-    }
+        this.family = family;
+    };
 
-    public Human(String name, String surname, int year, int iq, Pet pet) {
-        this(name, surname, year, iq);
-        this.pet = pet;
-    }
-
-    public Human(String name, String surname, int year, int iq, Pet pet, Map<String, String> schedule) {
-        this(name,surname, year, iq, pet);
+    public Human(String familyMember, String name, String surname, int year, int iq, Family family, Map<String, String> schedule) {
+        this.familyMember = familyMember;
+        this.name = name;
+        this.surname = surname;
+        this.year = year;
+        this.iq = iq;
+        this.family = family;
         this.schedule = schedule;
-    }
+    };
 
-    public Human(String name, String surname, int year, int iq, Map<String, String> schedule1) {
+    public String getFamilyMember() {
+        return this.familyMember;
+    };
 
-    }
-
-    void greetPet() {
-        System.out.println("Hello " + this.pet.getNickname());
-    }
-
-    void describePet() {
-        System.out.println("I have " + this.pet.getNickname() + "His is " + this.pet.getAge() + " years old");
-        if (this.pet.getTrickLevel() >= 50) {
-            System.out.print("He is very tricky");
-            System.out.print('\n');
-        } else {
-            System.out.print("He is almost tricky");
-            System.out.print('\n');
-        }
-    }
-
+    public void setFamilyMember(String familyMember) {
+        this.familyMember = familyMember;
+    };
 
     public String getName() {
-        return name;
-    }
+        return this.name;
+    };
 
     public void setName(String name) {
         this.name = name;
-    }
+    };
 
     public String getSurname() {
-        return surname;
-    }
+        return this.surname;
+    };
 
     public void setSurname(String surname) {
         this.surname = surname;
-    }
+    };
 
     public int getYear() {
-        return year;
-    }
+        return this.year;
+    };
 
     public void setYear(int year) {
         this.year = year;
-    }
+    };
 
     public int getIq() {
-        return iq;
-    }
+        return this.iq;
+    };
 
     public void setIq(int iq) {
         this.iq = iq;
-    }
+    };
+
+    public Family getFamily() {
+        return family;
+    };
+
+    public void setFamily(Family family) {
+        this.family = family;
+    };
 
     public Map<String, String> getSchedule() {
         schedule.put(String.valueOf(DayOfWeek.MONDAY), null);
@@ -94,45 +107,45 @@ public class Human {
         schedule.put(String.valueOf(DayOfWeek.FRIDAY), null);
         schedule.put(String.valueOf(DayOfWeek.SATURDAY), null);
         schedule.put(String.valueOf(DayOfWeek.SUNDAY), null);
-
         return schedule;
-    }
+    };
 
     public void setSchedule(Map<String, String> schedule) {
         this.schedule = schedule;
-    }
+    };
 
-    public Pet getPet() {
-        return pet;
-    }
+    public void greetPet() {
+        System.out.println("Hello " + family.getPet().getNickname());
+    };
 
-    public void setPet(Pet pet) {
-        this.pet = pet;
-    }
+    public void describePet() {
+        System.out.println("I have " + family.getPet() +
+                ". He is name is " + family.getPet().getNickname() + " years old and he is " +
+                ((family.getPet().getTrickLevel() > 50) ? "very tricky" : "almost tricky"));
+    };
 
-    public Family getFamily() {
-        return family;
-    }
+    public void feedPet() {
+        System.out.println("Here is your food " + family.getPet().getNickname());
+    };
 
-    public void setFamily(Family family) {
-        this.family = family;
-    }
 
     @Override
     public String toString() {
-        return  "Human {" + "name = " + this.name  + ", "
+        String text = "";
+        text += this.familyMember + " {" + "name = " + this.name  + ", "
                 + "surname = " + this.surname + ", "
                 + "year = " + this.year + ", "
                 + "iq = " + this.iq + ", "
-                + "schedule = " + schedule
+                + "schedule=" + schedule + ", "
                 + "}" + '\n';
-    }
+        return text;
+    };
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Human human = (Human) o;
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Human human = (Human) obj;
         return year == human.year &&
                 iq == human.iq &&
                 name.equals(human.name) &&
@@ -147,11 +160,12 @@ public class Human {
     @Override
     protected void finalize() throws Throwable {
         System.out.println(
-                        "Human: {" + "name = " + this.name  + ", "
+                "Human: {" + "name = " + this.name  + ", "
                         + "surname = " + this.surname + ", "
                         + "year = " + this.year + ", "
                         + "iq = " + this.iq + ", "
                         + "schedule = " + schedule
                         + "}"+ "destroyed" + '\n');
     }
+
 }

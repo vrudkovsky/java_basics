@@ -1,5 +1,6 @@
 package com.rudkovsky.family09.entity;
 
+import java.util.Arrays;
 import java.util.Set;
 
 public class RoboCat extends Pet implements Foul {
@@ -10,6 +11,11 @@ public class RoboCat extends Pet implements Foul {
     }
 
     @Override
+    public void foul() {
+        System.out.println("Need to cover my tracks well ...");
+    }
+
+    @Override
     public void respond() {
         System.out.println("Hey! I'm " + super.getNickname() + ", your " + species);
     }
@@ -17,16 +23,11 @@ public class RoboCat extends Pet implements Foul {
     @Override
     public String toString() {
         return  species + ": " + "{" +
-                "species=" + species +
+                "species7=" + species +
                 ", nickname='" + super.getNickname() + '\'' +
                 ", age=" + super.getAge() +
                 ", trickLevel=" + super.getTrickLevel() +
-                ", habits=" + habits +
+                ", habits=" + this.getHabits() +
                 '}';
-    }
-
-    @Override
-    public void foul() {
-        System.out.println("Need to cover my tracks well ...");
     }
 }

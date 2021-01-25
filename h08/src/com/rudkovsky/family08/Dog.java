@@ -1,11 +1,12 @@
 package com.rudkovsky.family08;
 
 import java.util.Arrays;
+import java.util.Set;
 
 public class Dog extends Pet implements Foul {
     private Species species = Species.DOG;
 
-    public Dog(Species dog, String nickname, int age, int trickLevel, String[] habits) {
+    public Dog(Species dog, String nickname, int age, int trickLevel, Set<String> habits) {
         super(nickname, age, trickLevel, habits);
     }
 

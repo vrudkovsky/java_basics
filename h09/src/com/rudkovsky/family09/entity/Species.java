@@ -12,5 +12,3 @@ public enum Species {
         return "Species is " + this.name().toLowerCase();
     }
 }
-
-
