@@ -32,10 +32,10 @@ public class Dog extends Pet implements Foul {
     public String toString() {
         return  species + ": " + "{" +
                 "species=" + species +
-                ", nickname='" + super.getNickname() + '\'' +
-                ", age=" + super.getAge() +
-                ", trickLevel=" + super.getTrickLevel() +
-                ", habits=" + Arrays.toString(super.getHabits()) +
+                ", nickname='" + this.getNickname() + '\'' +
+                ", age=" + this.getAge() +
+                ", trickLevel=" + this.getTrickLevel() +
+                ", habits=" + this.getHabits() +
                 '}';
     }
 }
