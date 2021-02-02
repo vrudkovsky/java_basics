@@ -187,4 +187,6 @@ public class Human {
                         + "schedule = " + schedule
                         + "}"+ "destroyed" + '\n');
     }
+
+
 }

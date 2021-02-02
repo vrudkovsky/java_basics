@@ -1,12 +1,11 @@
 package com.rudkovsky.family11.entity;
 
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class Family {
     private Human mother;
     private Human father;
-    private List<Object> children;
+    public List<Object> children = new ArrayList<>();
     public List<Pet> pets;
 
 

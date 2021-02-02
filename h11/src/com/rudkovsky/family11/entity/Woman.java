@@ -37,4 +37,9 @@ public class Woman extends Human {
                 "pet = " + this.getPet() +
                 '}';
     }
+
+    @Override
+    public String describeAge() {
+        return super.describeAge();
+    }
 }

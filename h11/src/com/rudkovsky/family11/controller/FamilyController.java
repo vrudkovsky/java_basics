@@ -32,7 +32,7 @@ public class FamilyController {
         return sortedList;
     }
 
-    public List<Family> getFamiliesLessThan (int count) {
+    public List<Family> getFamiliesLessThan(int count) {
         List<Family> sortedList = new ArrayList<>();
         for (Family family : this.familyService.getFamiliesLessThan(count)) {
             if (family.countFamily() < count)
@@ -50,7 +50,7 @@ public class FamilyController {
     }
 
     public void bornChild(Family family, String fatherName, String motherName) {
-        this.familyService.bornChild(family, fatherName,motherName);
+        this.familyService.bornChild(family, fatherName, motherName);
     }
 
     public void adoptChild(Family family, Human child) {

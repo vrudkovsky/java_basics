@@ -13,7 +13,7 @@ public final class Man extends Human {
 
     @Override
     public void greetPet() {
-        System.out.println("Hey " + super.getFamily().getPet() + ". How are you, body");
+        System.out.println("Hey " + super.getFamily().getPets() + ". How are you, body");
     }
 
     @Override
@@ -25,7 +25,7 @@ public final class Man extends Human {
                 ", iq=" + super.getIq() +
                 ", schedule=" + this.getSchedule() +
                 ", family=" + super.getFamily() +
-                ", pet=" + super.getFamily().getPet() +
+                ", pet=" + super.getFamily().getPets() +
                 '}';
     }
 }

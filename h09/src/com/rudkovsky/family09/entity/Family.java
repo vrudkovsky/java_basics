@@ -9,7 +9,7 @@ public class Family {
     private Human mother;
     private Human father;
     private List<Human> children;
-    private Pet pet;
+    private List<Pet> pets;
 
     public Human getMother() {
         return mother;
@@ -35,13 +35,13 @@ public class Family {
         this.children = children;
     };
 
-    public Pet getPet() {
-        return pet;
-    };
+    public List<Pet> getPets() {
+        return pets;
+    }
 
-    public void setPet(Pet pet) {
-        this.pet = pet;
-    };
+    public void setPets(List<Pet> pets) {
+        this.pets = pets;
+    }
 
     public Family(Human mother, Human father) {
         this.mother = mother;
@@ -69,7 +69,7 @@ public class Family {
                 this.getMother() +
                 this.getFather() +
                 ", children=" + children +
-                ", pet={" + this.getPet() +
+                ", pet={" + this.getPets() +
                 '}';
     };
 
@@ -88,7 +88,7 @@ public class Family {
                 +"mother =" + mother
                 + ", father =" + father
                 + ", children =" + children
-                + ", pet = " + pet
+                + ", pet = " + pets
                 + '}' + "destroyed" + '\n');
     }
 }

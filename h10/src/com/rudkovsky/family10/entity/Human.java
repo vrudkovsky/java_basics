@@ -17,8 +17,8 @@ public class Human {
     private long birthDate;
     private int iq;
     private Map<String, String> schedule = new HashMap<>();
-    private com.rudkovsky.family10.entity.Pet pet;
-    private com.rudkovsky.family10.entity.Family family;
+    private Pet pet;
+    private Family family;
 
     public Human(String name, String surname, long birthDate) {
         this.name = name;
@@ -31,12 +31,12 @@ public class Human {
         this.iq = iq;
     }
 
-    public Human(String name, String surname, long birthDate, int iq, com.rudkovsky.family10.entity.Pet pet) {
+    public Human(String name, String surname, long birthDate, int iq, Pet pet) {
         this(name, surname, birthDate, iq);
         this.pet = pet;
     }
 
-    public Human(String name, String surname, long birthDate, int iq, com.rudkovsky.family10.entity.Pet pet, Map<String, String> schedule) {
+    public Human(String name, String surname, long birthDate, int iq, Pet pet, Map<String, String> schedule) {
         this(name,surname, birthDate, iq, pet);
         this.schedule = schedule;
     }
@@ -48,7 +48,7 @@ public class Human {
         this.birthDate = date.getTime();
     }
 
-    public Human(String name, String surname, long birthDate, int iq, Map<String, String> schedule, com.rudkovsky.family10.entity.Pet pet, com.rudkovsky.family10.entity.Family family) {
+    public Human(String name, String surname, long birthDate, int iq, Map<String, String> schedule, Pet pet, Family family) {
         this.name = name;
         this.surname = surname;
         this.birthDate = birthDate;
@@ -122,7 +122,7 @@ public class Human {
         this.schedule = schedule;
     }
 
-    public com.rudkovsky.family10.entity.Pet getPet() {
+    public Pet getPet() {
         return pet;
     }
 
@@ -130,7 +130,7 @@ public class Human {
         this.pet = pet;
     }
 
-    public com.rudkovsky.family10.entity.Family getFamily() {
+    public Family getFamily() {
         return family;
     }
 

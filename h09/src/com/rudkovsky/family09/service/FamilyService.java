@@ -1,16 +1,10 @@
 package com.rudkovsky.family09.service;
 
 import com.rudkovsky.family09.dao.IFamilyDao;
-import com.rudkovsky.family09.entity.Family;
-import com.rudkovsky.family09.entity.Human;
-import com.rudkovsky.family09.entity.Man;
-import com.rudkovsky.family09.entity.Woman;
+import com.rudkovsky.family09.entity.*;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class FamilyService {
     private IFamilyDao familyDao;
@@ -19,7 +13,7 @@ public class FamilyService {
         this.familyDao = familyDao;
     }
 
-    public List<Family> getAllFamilies(IFamilyDao familyDao) {
+    public List<Family> getAllFamilies() {
         return this.familyDao.getAllFamilies();
     }
 
@@ -98,6 +92,40 @@ public class FamilyService {
             }
         }
         return check;
+    }
+
+    public void deleteAllChildrenOlderThen(int age) {
+        Date date = new Date();
+        Calendar calendar = new GregorianCalendar();
+        calendar.setTime(date);
+        int year = calendar.get(Calendar.YEAR);
+//        for (Family9 family9 : collectionFamilyDao9.getAllFamilies()) {
+//            List<Object> newChildrens = new ArrayList<>();
+//            for (Human9 human9: family9.getChildren()) {
+//                if ((year - human9.getYear()) > age) {
+//                    newChildrens.add(human9);
+//                }
+//            }
+//            for (int i = 0; i < newChildrens.size(); i++) {
+//                family9.deleteChild(newChildrens.get(i));
+//            }
+//        }
+    }
+
+    public int count() {
+        return this.familyDao.getAllFamilies().size();
+    }
+
+    public Family getFamilyById(int index) {
+        return this.familyDao.getFamilyByIndex(index);
+    }
+
+    public List<Pet> getPets(int index) {
+        return this.familyDao.getFamilyByIndex(index).getPets();
+    }
+
+    public boolean addPet(int index, Pet pet) {
+        return this.familyDao.getFamilyByIndex(index).getPets().add(pet);
     }
 
 }

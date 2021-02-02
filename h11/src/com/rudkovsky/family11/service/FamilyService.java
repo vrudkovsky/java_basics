@@ -17,25 +17,25 @@ public class FamilyService {
     }
 
 
-    public List<Family> getAllFamilies(CollectionFamilyDao collectionFamilyDao) {
+    public List<Family> getAllFamilies() {
         return this.collectionFamilyDao.getAllFamilies();
     }
 
     public void displayAllFamilies() {
-        this.collectionFamilyDao.getAllFamilies().forEach(f-> System.out.println(f.toString()));
+        this.collectionFamilyDao.getAllFamilies().forEach(p -> System.out.println(p.toString()));
     }
 
     public List<Family> getFamiliesBiggerThan(int count) {
         return this.collectionFamilyDao.getAllFamilies().stream()
-                .filter(f->f.countFamily() < count)
+                .filter(family -> family.countFamily() < count)
                 .collect(Collectors.toList());
     }
 
     public List<Family> getFamiliesLessThan (int count) {
         return this.collectionFamilyDao.getAllFamilies().stream()
-                .filter(f->f.countFamily() > count)
+                .filter(family -> family.countFamily() > count)
                 .collect(Collectors.toList());
-        }
+    }
 
     public boolean createNewFamily(Human father, Human mother) {
         return this.collectionFamilyDao.saveFamily(new Family(mother, father));
@@ -55,6 +55,10 @@ public class FamilyService {
     }
 
     public void deleteAllChildrenOlderThan(int age) {
+        this.collectionFamilyDao.getAllFamilies()
+                .forEach(family -> {
+                    family.toString();
+                });
 
     }
 
@@ -64,8 +68,10 @@ public class FamilyService {
 
     public long countFamiliesWithMemberNumber(int count){
         return this.collectionFamilyDao.getAllFamilies().stream()
-                .filter(f->f.countFamily() == count).count();
+                .filter(family -> family.countFamily() == count).count();
     }
+
+
 
     public Family getFamilyById(int familyId) {
         return this.collectionFamilyDao.getFamilyByIndex(familyId);

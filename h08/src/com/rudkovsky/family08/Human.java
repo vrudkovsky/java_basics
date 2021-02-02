@@ -116,18 +116,18 @@ public class Human {
     };
 
     public void greetPet() {
-        System.out.println("Hello " + family.getPet().getNickname());
+        System.out.println("Hello " + family.getPet());
     };
 
-    public void describePet() {
-        System.out.println("I have " + family.getPet() +
-                ". He is name is " + family.getPet().getNickname() + " years old and he is " +
-                ((family.getPet().getTrickLevel() > 50) ? "very tricky" : "almost tricky"));
-    };
-
-    public void feedPet() {
-        System.out.println("Here is your food " + family.getPet().getNickname());
-    };
+//    public void describePet() {
+//        System.out.println("I have " + family.getPet() +
+//                ". He is name is " + family.getPet() + " years old and he is " +
+//                ((family.getPet().getTrickLevel() > 50) ? "very tricky" : "almost tricky"));
+//    };
+//
+//    public void feedPet() {
+//        System.out.println("Here is your food " + family.getPet().getNickname());
+//    };
 
 
     @Override

@@ -19,7 +19,6 @@ public class CollectionFamilyDao implements FamilyDao {
         return this.families.get(index);
     }
 
-    // Not sure about this implementation !!!!
     @Override
     public boolean deleteFamily(int index) {
         if (index < 0 || index > this.families.size()) {
@@ -41,13 +40,12 @@ public class CollectionFamilyDao implements FamilyDao {
 
     @Override
     public boolean saveFamily(Family family) {
-        // update current DB
-        return true;
+        return families.add(family);
     }
 
     @Override
     public String toString() {
-        return "CollectionFamilyDao9{" +
+        return "CollectionFamilyDao{" +
                 "families=" + families +
                 '}';
     }
