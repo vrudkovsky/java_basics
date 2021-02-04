@@ -17,7 +17,6 @@ public class main {
         Man father = new Man("Max", "Addams", 1977, 90);
 
         familyController.createNewFamily(father, mother);
-        Family family = familyController.getFamilyById();
 //        familyController.bornChild(family, family.getFather().getName(), family.getMother().getName());
         familyController.displayAllFamilies();
     }
