@@ -2,7 +2,7 @@
 * Java Substring Comparisons
 * */
 
-package com.company.helloworld;
+package com.company.hackerrank;
 
 import java.util.Arrays;
 import java.util.Scanner;
