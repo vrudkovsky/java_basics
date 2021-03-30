@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 
-public class Shooter {
+public class Battleship {
     public static void main(String[] args) {
         boolean exit = true;
 
