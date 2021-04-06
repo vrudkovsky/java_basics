@@ -1,10 +1,10 @@
 package com.rudkovsky.schedule;
 
+
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class WeekSchedule {
-
-    private static final String[][] schedule = new String[7][2];
 
     public static String[][] mySchedule(String[][] schedule) {
         schedule[0][0] = "Sunday";
@@ -58,15 +58,46 @@ public class WeekSchedule {
         }
     }
 
+    public static void change(String input, String[][] schedule) {
+        Scanner sc = new Scanner(System.in);
+        for (String[] s: schedule) {
+            if (s[0].toLowerCase().equals(input)) {
+                System.out.println("Enter new tasks");
+                s[1] =  sc.nextLine().toLowerCase().trim();
+            }
+        }
+    }
+
+    public static void reschedule(String input, String[][] schedule) {
+        for (String[] s: schedule) {
+            if (s[0].toLowerCase().equals(input)) {
+                System.out.println("!!!");
+            }
+        }
+    }
+
     public static void main(String[] args) {
+        String[][] schedule = new String[7][2];
         String[][] sch = mySchedule(schedule);
         Scanner sc = new Scanner(System.in);
 
         while (true) {
-            System.out.println("Please, input the day of the week:");
-            String day = sc.nextLine().toLowerCase();
-            if (day.equals("exit")) break;
-            showTask(day, sch);
+            System.out.println("Please, input the day of the week and what you want to do:");
+            String[] userInput = sc.nextLine().toLowerCase().trim().split(" ");
+            if (userInput[0].equals("exit")) break;
+            switch (userInput[0]) {
+                case "change":
+                    change(userInput[1], sch);
+                    break;
+                case "reschedule":
+                    reschedule(userInput[1], sch);
+                    break;
+                case "show":
+                    showTask(userInput[1], sch);
+                    break;
+            }
         }
+        System.out.println("======================");
+        System.out.println(Arrays.deepToString(sch));
     }
 }
