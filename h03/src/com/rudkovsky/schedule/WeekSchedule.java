@@ -25,6 +25,7 @@ public class WeekSchedule {
         return schedule;
     }
 
+
     public static void printTask(String day, String task) {
         System.out.printf("Your task for [%s] : %s\n", day, task);
     }
