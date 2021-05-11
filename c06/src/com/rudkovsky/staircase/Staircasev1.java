@@ -32,4 +32,3 @@ public class Staircasev1 {
         sc.close();
     }
 }
-
