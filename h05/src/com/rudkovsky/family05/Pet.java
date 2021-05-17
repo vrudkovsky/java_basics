@@ -8,17 +8,52 @@ public class Pet {
     private String nickname;
     private int age;
     private int trickLevel;
-    private String[] habits;
+    private String[] habits = new String[5];
 
-    public Pet() {
+    public String getSpecies() {
+        return species;
     }
 
+    public void setSpecies(String species) {
+        this.species = species;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public int getTrickLevel() {
+        return trickLevel;
+    }
+
+    public void setTrickLevel(int trickLevel) {
+        this.trickLevel = trickLevel;
+    }
+
+    public String[] getHabits() {
+        return habits;
+    }
+
+    public void setHabits(String[] habits) {
+        this.habits = habits;
+    }
 
     public Pet(String species, String nickname) {
         this.species = species;
         this.nickname = nickname;
     }
-
 
     public Pet(String species, String nickname, int age, int trickLevel, String[] habits) {
         this.species = species;
@@ -28,91 +63,32 @@ public class Pet {
         this.habits = habits;
     }
 
-
-    public String getSpecies() {
-        return this.species;
+    public Pet() {
     }
-
-
-    public void setSpecies(String species) {
-        this.species = species;
-    }
-
-
-    public String getNickname() {
-        return this.nickname;
-    }
-
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
-
-    public int getAge() {
-        return this.age;
-    }
-
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-
-    public int getTrickLevel() {
-        return this.trickLevel;
-    }
-
-
-    public void setTrickLevel(int trickLevel) {
-        this.trickLevel = trickLevel;
-    }
-
-
-    public String[] getHabits() {
-        return habits;
-    }
-
-
-    public void setHabits(String[] habits) {
-        this.habits = habits;
-    }
-
 
     public void eat() {
-        System.out.println("I'm eating.");
+        System.out.println("I'm eating");
     }
-
 
     public void respond() {
-        System.out.println("Hello master. I'm " + nickname + ". I'm missing you!");
+        System.out.printf("Hello master. I'm %s. I missed you!", nickname);
     }
-
 
     public void foul() {
-        System.out.println("I have to everything clean up here");
+        System.out.print("I have to cover it all/n");
     }
-
 
     @Override
     public String toString() {
-        return "species=" + this.species + "; " +
-                "nickname=" + this.getNickname() + "; " +
-                "age=" + this.getAge() + "; " +
-                "trickLevel=" + this.getTrickLevel() + "; " +
-                "habits=" + Arrays.toString(this.getHabits());
+        return String.format(nickname, age, trickLevel, Arrays.toString(habits));
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Pet pet = (Pet) obj;
-        return age == pet.age &&
-                trickLevel == pet.trickLevel &&
-                species.equals(pet.species) &&
-                nickname.equals(pet.nickname) &&
-                Arrays.equals(habits, pet.habits);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pet pet = (Pet) o;
+        return age == pet.age && trickLevel == pet.trickLevel && Objects.equals(species, pet.species) && Objects.equals(nickname, pet.nickname) && Arrays.equals(habits, pet.habits);
     }
 
     @Override

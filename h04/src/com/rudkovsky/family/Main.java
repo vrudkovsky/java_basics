@@ -34,5 +34,6 @@ public class Main {
 
         System.out.println(mother);
         System.out.println(child);
+        System.out.println(Arrays.deepToString(child.schedule));
     }
 }
