@@ -1,7 +1,6 @@
 package com.rudkovsky.family;
 
 public class Human {
-    String familyMember;
     String name;
     String surname;
     int year;
@@ -11,18 +10,13 @@ public class Human {
     Human father;
     String[][] schedule = new String[7][1];
 
-    public Human() {
-    };
-
-    public Human(String familyMember, String name, String surname, int year) {
-        this.familyMember = familyMember;
+    public Human(String name, String surname, int year) {
         this.name = name;
         this.surname = surname;
         this.year = year;
     }
 
-    public Human(String familyMember, String name, String surname, int year, Human mother, Human father) {
-        this.familyMember = familyMember;
+    public Human(String name, String surname, int year, Human mother, Human father) {
         this.name = name;
         this.surname = surname;
         this.year = year;
@@ -30,19 +24,7 @@ public class Human {
         this.father = father;
     }
 
-    public Human(String familyMember, String name, String surname, int year, int iq, Pet pet, Human mother, Human father) {
-        this.familyMember = familyMember;
-        this.name = name;
-        this.surname = surname;
-        this.year = year;
-        this.iq = iq;
-        this.pet = pet;
-        this.mother = mother;
-        this.father = father;
-    }
-
-    public Human(String familyMember, String name, String surname, int year, int iq, Pet pet, Human mother, Human father, String[][] schedule) {
-        this.familyMember = familyMember;
+    public Human(String name, String surname, int year, int iq, Pet pet, Human mother, Human father, String[][] schedule) {
         this.name = name;
         this.surname = surname;
         this.year = year;
@@ -53,31 +35,21 @@ public class Human {
         this.schedule = schedule;
     }
 
+    public Human() {
+    }
+
     public void greetPet() {
-        System.out.println("Hello " + pet.nickname);
-    };
+        System.out.printf("Hello %s!/n", pet.nickname);
+    }
 
     public void describePet() {
-        System.out.println("I have " + pet.species +
-                            ". He is " + pet.age + " years old and " +
-                            ((pet.trickLevel > 50) ? "very tricky" : "almost tricky"));
-    };
-
+        System.out.printf("I have a %s. He is %d years old and he is %s/n", pet.species, pet.age, pet.trickLevel);
+    }
 
     @Override
     public String toString() {
-        String text = "";
-        text += this.familyMember + " {" + "name = " + this.name  + ", "
-                + "surname = " + this.surname + ", "
-                + "year = " + this.year + ", "
-                + "iq = " + this.iq
-                + "}" + '\n';
-        if(this.mother != null)
-            text += "\tmother= " + this.mother.name + " " + this.mother.surname;
-        if(this.father != null)
-            text += ", father= " + this.father.name + " " + this.father.surname + "}" + '\n';
-        if(this.pet != null)
-            text += "\tpet=" + "{" + this.pet + "}";
-        return text;
-    };
+        return String.format(
+                "name: %s; surname: %s; year: %d; iq: %d; mother: %s; father: %s; pet: %s;",
+                name, surname, year, iq, (mother != null)? mother.name : "no mother", (father != null)? father.name : "no father", pet);
+    }
 }

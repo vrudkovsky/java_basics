@@ -1,6 +1,5 @@
 package com.rudkovsky.schedule;
 
-
 import java.util.Arrays;
 import java.util.Scanner;
 
