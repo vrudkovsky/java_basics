@@ -5,8 +5,8 @@ import java.util.Objects;
 
 public class Family {
 
-    private Human mother = new Human();
-    private Human father = new Human();
+    private Human mother;
+    private Human father;
     private Human[] children = new Human[0];;
     private Pet pet;
 
