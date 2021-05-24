@@ -1,6 +1,5 @@
 package com.rudkovsky.family05;
 
-import java.util.Arrays;
 import java.util.Objects;
 
 public class Human {
@@ -59,6 +58,14 @@ public class Human {
         this.schedule = schedule;
     }
 
+    static {
+        System.out.println("New class is loading" + Family.class.getSimpleName());
+    }
+
+    {
+        System.out.println("New object is creating");
+    }
+
     public Human(String name, String surname, int year) {
         this.name = name;
         this.surname = surname;
@@ -72,15 +79,27 @@ public class Human {
         this.family = family;
     }
 
-    public Human(String name, String surname, int year, int iq, Pet pet, Family family, String[][] schedule) {
-        this.name = name;
-        this.surname = surname;
-        this.year = year;
+    public Human(String name, String surname, int year, int iq, Family family, String[][] schedule) {
+        this(name, surname, year);
         this.iq = iq;
+        this.family = family;
         this.schedule = schedule;
     }
 
     public Human() {
+    }
+
+    public void greetPet() {
+        System.out.printf("Hello %s!%n", family.getPet().getNickname());
+    }
+
+    public void describePet() {
+        System.out.printf("I have a %s. He is %d years old and he is %s%n",
+                family.getPet().getSpecies(), family.getPet().getAge(), family.getPet().getTrickLevel());
+    }
+
+    public void feedPet() {
+        family.getPet().eat();
     }
 
 

@@ -10,9 +10,59 @@ public class Family {
     private Human[] children = new Human[0];;
     private Pet pet;
 
+    public Human getMother() {
+        return mother;
+    }
+
+    public void setMother(Human mother) {
+        this.mother = mother;
+    }
+
+    public Human getFather() {
+        return father;
+    }
+
+    public void setFather(Human father) {
+        this.father = father;
+    }
+
+    public Human[] getChildren() {
+        return children;
+    }
+
+    public void setChildren(Human[] children) {
+        this.children = children;
+    }
+
+    public Pet getPet() {
+        return pet;
+    }
+
+    public void setPet(Pet pet) {
+        this.pet = pet;
+    }
+
+    static {
+        System.out.println("New class is loading" + Family.class.getSimpleName());
+    }
+
+    {
+        System.out.println("New object is creating");
+    }
+
+
+
     public Family(Human mother, Human father) {
         this.mother = mother;
         this.father = father;
+        father.setFamily(this);
+        mother.setFamily(this);
+    }
+
+    public Family(Human mother, Human father, Human[] children, Pet pet) {
+        this(mother, father);
+        this.children = children;
+        this.pet = pet;
         father.setFamily(this);
         mother.setFamily(this);
     }
@@ -58,17 +108,21 @@ public class Family {
 
 
     public void greetPet() {
-        System.out.printf("Hello %s!/n", pet.getNickname());
+        System.out.printf("Hello %s!%n", pet.getNickname());
     }
 
     public void describePet() {
-        System.out.printf("I have a %s. He is %d years old and he is %s/n",
+        System.out.printf("I have a %s. He is %d years old and he is %s%n",
                 pet.getSpecies(), pet.getAge(), pet.getTrickLevel());
+    }
+
+    public int countFamily() {
+        return children.length + 2;
     }
 
     @Override
     public String toString() {
-        return String.format("mother: %s; father: %s; children: %s; pet: $s",
+        return String.format(" Mother: %s; Father: %s; children: %s; pet: $s",
                 mother.getName(), father.getName(), Arrays.toString(children), pet.getSpecies());
     }
 

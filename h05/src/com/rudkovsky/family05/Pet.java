@@ -34,8 +34,9 @@ public class Pet {
         this.age = age;
     }
 
-    public int getTrickLevel() {
-        return trickLevel;
+    public String getTrickLevel() {
+
+        return (trickLevel > 50)? "Very tricky" : "Not tricky";
     }
 
     public void setTrickLevel(int trickLevel) {
@@ -75,12 +76,12 @@ public class Pet {
     }
 
     public void foul() {
-        System.out.print("I have to cover it all/n");
+        System.out.print("I have to cover it all");
     }
 
     @Override
     public String toString() {
-        return String.format(nickname, age, trickLevel, Arrays.toString(habits));
+        return String.format("Nickname: %s, Age: %d, TrickLevel: %d, Habbits: %s%n",nickname, age, trickLevel, Arrays.toString(habits));
     }
 
     @Override
