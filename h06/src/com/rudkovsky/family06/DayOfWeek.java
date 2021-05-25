@@ -11,6 +11,6 @@ public enum DayOfWeek {
 
     @Override
     public String toString() {
-        return "Days of the week are " + this.name().toLowerCase();
+        return "Day of the week are " + this.name().toLowerCase();
     }
 }
