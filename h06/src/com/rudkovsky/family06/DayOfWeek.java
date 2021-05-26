@@ -1,13 +1,19 @@
 package com.rudkovsky.family06;
 
 public enum DayOfWeek {
-    SUNDAY,
-    MONDAY,
-    TUESDAY,
-    WEDNESDAY,
-    THURSDAY,
-    FRIDAY,
-    SATURDAY;
+    SUNDAY("sunday"),
+    MONDAY("monday"),
+    TUESDAY("tuesday"),
+    WEDNESDAY("wednesday"),
+    THURSDAY("thursday"),
+    FRIDAY("friday"),
+    SATURDAY("saturday");
+
+    String name;
+
+    DayOfWeek(String name) {
+        this.name = name;
+    }
 
     @Override
     public String toString() {
