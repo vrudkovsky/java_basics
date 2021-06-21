@@ -1,0 +1,34 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Human
+class Pet
+
+
+class Human {
+    +name: String
+    +surname: String
+    +year: int
+    +iq: int
+    +pet: Pet
+    +mother: Human
+    +father: Human
+    +schedule: String [][]
+    +greetPet(): void
+    +describePet(): void
+    +feedPet(boolean isFeed): boolean
+}
+
+class Pet {
+    +species: String
+    +nickname: String
+    +age: int
+    +tricklevel: int
+    +habits: String []
+    +eat(): void
+    +respond(): void
+    +foul(): void
+}
+
+
+@enduml

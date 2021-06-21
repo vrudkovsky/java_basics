@@ -1,14 +1,16 @@
 package com.rudkovsky.family;
 
+import java.util.Optional;
+
 public class Human {
-    String name;
-    String surname;
-    int year;
-    int iq;
-    Pet pet;
-    Human mother;
-    Human father;
-    String[][] schedule = new String[7][1];
+    public String name;
+    public String surname;
+    public int year;
+    public int iq;
+    public Pet pet;
+    public Human mother;
+    public Human father;
+    public  String[][] schedule = new String[7][1];
 
     public Human(String name, String surname, int year) {
         this.name = name;
@@ -38,18 +40,42 @@ public class Human {
     public Human() {
     }
 
-    public void greetPet() {
-        System.out.printf("Hello %s!/n", pet.nickname);
+    private String process(Pet origin) {
+        return Optional.ofNullable(origin)
+                .map(s -> String.format("Hey %s!!!", s.nickname))
+                .orElse(">> I don't have any pet <<");
     }
 
-    public void describePet() {
-        System.out.printf("I have a %s. He is %d years old and he is %s/n", pet.species, pet.age, pet.trickLevel);
+    public void greetPet() {
+
+        System.out.println(process(pet));
+    }
+
+    public  void describePet() {
+        System.out.printf("I have %s. It is %d years old. It is %s",
+                pet.species,
+                pet.age,
+                (pet.tricklevel > 50)? "tricky\n" : "almost tricky\n");
+    }
+
+    public void feedPet() {
+        System.out.println("I'm eating");
     }
 
     @Override
     public String toString() {
-        return String.format(
-                "name: %s; surname: %s; year: %d; iq: %d; mother: %s; father: %s; pet: %s;",
-                name, surname, year, iq, (mother != null)? mother.name : "no mother", (father != null)? father.name : "no father", pet);
+        String text = "";
+        text += "Human {" + "name = " + this.name  + ", "
+                + "surname = " + this.surname + ", "
+                + "year = " + this.year + ", "
+                + "iq = " + this.iq
+                + "}" + '\n';
+        if(this.mother != null)
+            text += "\tmother= " + this.mother.name + ", " + this.mother.surname;
+        if(this.father != null)
+            text += ", father= " + this.father.name + ", " + this.father.surname + "}" + '\n';
+        if(this.pet != null)
+            text += "\tpet=" + this.pet + "}";
+        return text;
     }
 }
