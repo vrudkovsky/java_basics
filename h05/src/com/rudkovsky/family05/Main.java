@@ -3,16 +3,19 @@ package com.rudkovsky.family05;
 public class Main {
     public static void main(String[] args) {
         //first family
-        Human mother = new Human("Sara", "Addoms" , 1979);
-        Human father = new Human("Max", "Addams", 1975);
-        Human child1 = new Human("Helen", "Addams", 2005);
-        Human child2 = new Human("Alex", "Addams", 2007);
+        Family family = new Family();
+        family.setFather(new Human("Alex" , "Freeman", 1977, family));
+        family.setMother(new Human("Sarah", "Freeman", 1980, family));
+        family.addChild(new Human("Max", "Freeman", 2000, family));
+        family.addChild(new Human("Sergii", "Freeman", 2003, family));
+        family.addChild(new Human("Anton", "Freeman", 2005, family));
+        family.addChild(new Human("Helen", "Freeman", 2007, family));
+        family.addChild(new Human("Ira", "Freeman", 2010, family));
         Pet pet = new Pet("dog", "Jasper", 4, 75, new String[] {"Eat", "Walk", "Sleep"});
 
-        Family family1 = new Family(mother, father, new Human[] {child1, child2}, pet);
 
 //        family1.describePet();
-        System.out.println(family1.getPet().toString());
+        System.out.println(family);
 
     }
 }

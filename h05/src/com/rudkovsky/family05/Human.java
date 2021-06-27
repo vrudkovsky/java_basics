@@ -1,6 +1,7 @@
 package com.rudkovsky.family05;
 
-import java.util.Objects;
+import java.util.Arrays;
+import java.util.Optional;
 
 public class Human {
     private String name;
@@ -8,7 +9,27 @@ public class Human {
     private int year;
     private int iq;
     private Family family;
-    private String[][] schedule = new String[7][1];
+    private String[][] schedule;
+
+    public Human() {
+    }
+
+    public Human(String name, String surname, int year, Family family) {
+        this.name = name;
+        this.surname = surname;
+        this.year = year;
+        this.family = family;
+    }
+
+    public Human(String name, String surname, int year, int iq, Family family) {
+        this(name, surname, year, family);
+        this.iq = iq;
+    }
+
+    public Human(String name, String surname, int year, int iq, Family family, String[][] schedule) {
+        this(name, surname, year, iq, family);
+        this.schedule = schedule;
+    }
 
     public String getName() {
         return name;
@@ -58,68 +79,48 @@ public class Human {
         this.schedule = schedule;
     }
 
-    static {
-        System.out.println("New class is loading" + Family.class.getSimpleName());
-    }
-
-    {
-        System.out.println("New object is creating");
-    }
-
-    public Human(String name, String surname, int year) {
-        this.name = name;
-        this.surname = surname;
-        this.year = year;
-    }
-
-    public Human(String name, String surname, int year, Family family) {
-        this.name = name;
-        this.surname = surname;
-        this.year = year;
-        this.family = family;
-    }
-
-    public Human(String name, String surname, int year, int iq, Family family, String[][] schedule) {
-        this(name, surname, year);
-        this.iq = iq;
-        this.family = family;
-        this.schedule = schedule;
-    }
-
-    public Human() {
+    private String process(Pet origin) {
+        return Optional.ofNullable(origin)
+                .map(s -> String.format("Hey %s!!!", s.getNickname()))
+                .orElse(">> I don't have any pet <<");
     }
 
     public void greetPet() {
-        System.out.printf("Hello %s!%n", family.getPet().getNickname());
+        System.out.println(process(this.family.getPet()));
     }
 
-    public void describePet() {
-        System.out.printf("I have a %s. He is %d years old and he is %s%n",
-                family.getPet().getSpecies(), family.getPet().getAge(), family.getPet().getTrickLevel());
+    public  void describePet() {
+        System.out.printf("I have %s. It is %d years old. It is %s",
+                this.family.getPet().getSpecies(),
+                this.family.getPet().getAge(),
+                (this.family.getPet().getTricklevel() > 50)? "tricky\n" : "almost tricky\n");
     }
 
-    public void feedPet() {
-        family.getPet().eat();
-    }
+    public boolean feedPet(boolean isFeed) {
+        Randomizer r = new Randomizer();
+        if (isFeed) {
+            System.out.println("Let's feed him");
+            return true;
+        }else if (!isFeed && (this.family.getPet().getTricklevel() > r.randomizer_0to100())) {
+            System.out.println("Let's feed him");
+            return true;
+        } else {
+            System.out.println("He doesn't want to eat");
+            return false;
+        }
 
+
+    }
 
     @Override
     public String toString() {
-        return String.format(
-                "name: %s; surname: %s; year: %d; iq: %d; family: $s;",
-                name, surname, year, iq, family);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Human human = (Human) o;
-        return year == human.year && Objects.equals(name, human.name) && Objects.equals(surname, human.surname);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, surname, year, iq);
+        String text = "";
+        text += "Human {" + "name = " + this.name  + ", "
+                + "surname = " + this.surname + ", "
+                + "year = " + this.year + ", "
+                + "iq = " + this.iq
+                + "schedule=" + Arrays.toString(this.schedule)
+                + "}" + '\n';
+        return text;
     }
 }

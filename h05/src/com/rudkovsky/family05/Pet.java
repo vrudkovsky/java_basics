@@ -1,14 +1,32 @@
 package com.rudkovsky.family05;
 
 import java.util.Arrays;
-import java.util.Objects;
 
 public class Pet {
     private String species;
     private String nickname;
     private int age;
-    private int trickLevel;
-    private String[] habits = new String[5];
+    private int tricklevel;
+    String [] habits;
+
+    public Pet() {
+    }
+
+    public Pet(String species, String nickname, int age) {
+        this.species = species;
+        this.nickname = nickname;
+        this.age = age;
+    }
+
+    public Pet(String species, String nickname, int age, int tricklevel) {
+        this(species, nickname, age);
+        this.tricklevel = tricklevel;
+    }
+
+    public Pet(String species, String nickname, int age, int tricklevel, String[] habits) {
+        this(species, nickname, age, tricklevel);
+        this.habits = habits;
+    }
 
     public String getSpecies() {
         return species;
@@ -34,13 +52,12 @@ public class Pet {
         this.age = age;
     }
 
-    public String getTrickLevel() {
-
-        return (trickLevel > 50)? "Very tricky" : "Not tricky";
+    public int getTricklevel() {
+        return tricklevel;
     }
 
-    public void setTrickLevel(int trickLevel) {
-        this.trickLevel = trickLevel;
+    public void setTricklevel(int tricklevel) {
+        this.tricklevel = tricklevel;
     }
 
     public String[] getHabits() {
@@ -51,51 +68,20 @@ public class Pet {
         this.habits = habits;
     }
 
-    public Pet(String species, String nickname) {
-        this.species = species;
-        this.nickname = nickname;
-    }
-
-    public Pet(String species, String nickname, int age, int trickLevel, String[] habits) {
-        this.species = species;
-        this.nickname = nickname;
-        this.age = age;
-        this.trickLevel = trickLevel;
-        this.habits = habits;
-    }
-
-    public Pet() {
-    }
-
     public void eat() {
         System.out.println("I'm eating");
     }
 
     public void respond() {
-        System.out.printf("Hello master. I'm %s. I missed you!", nickname);
+        System.out.printf("Hey, master! I'm %s. I'm niss you!\n", this.nickname);
     }
 
     public void foul() {
-        System.out.print("I have to cover it all");
+        System.out.println("I have to cover my traces");
     }
 
     @Override
     public String toString() {
-        return String.format("Nickname: %s, Age: %d, TrickLevel: %d, Habbits: %s%n",nickname, age, trickLevel, Arrays.toString(habits));
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Pet pet = (Pet) o;
-        return age == pet.age && trickLevel == pet.trickLevel && Objects.equals(species, pet.species) && Objects.equals(nickname, pet.nickname) && Arrays.equals(habits, pet.habits);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = Objects.hash(species, nickname, age, trickLevel);
-        result = 31 * result + Arrays.hashCode(habits);
-        return result;
+        return String.format("%s{nickname '%s', age=%d, trickLevel=%d, habits=%s}\n", this.species, this.nickname, this.age, this.tricklevel, Arrays.toString(this.habits) );
     }
 }
