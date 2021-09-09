@@ -9,7 +9,7 @@ import static java.util.stream.Collectors.toList;
  * https://www.hackerrank.com/challenges/birthday-cake-candles/problem
  */
 
-class Result {
+class Resultv1 {
 
     /*
      * Complete the 'birthdayCakeCandles' function below.
@@ -18,7 +18,7 @@ class Result {
      * The function accepts INTEGER_ARRAY candles as parameter.
      */
 
-    public static int Solution(List<Integer> candles) {
+    public static int Solutionv1(List<Integer> candles) {
         // Write your code here
         int max = candles.stream().max(Integer::compareTo).get();
         return (int) candles.stream().filter(x -> x == max).count();
@@ -28,7 +28,6 @@ class Result {
 
 public class BirthdayCakeCandles {
     public static void main(String[] args) throws IOException {
-//        String outputFileName = "..\\..\\..\\..\\..\\BirthdayCakeCandles.txt";
         String outputFileName = "candels.txt";
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(outputFileName));
@@ -39,7 +38,7 @@ public class BirthdayCakeCandles {
                 .map(Integer::parseInt)
                 .collect(toList());
 
-        int result = Result.Solution(candles);
+        int result = Resultv1.Solutionv1(candles);
 
         bufferedWriter.write(String.valueOf(result));
         bufferedWriter.newLine();
