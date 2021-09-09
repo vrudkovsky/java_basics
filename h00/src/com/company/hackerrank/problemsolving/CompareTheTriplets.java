@@ -3,13 +3,15 @@ package com.company.hackerrank.problemsolving;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
-class Result {
+class Resultv2 {
 
     /*
      * Complete the 'compareTriplets' function below.
@@ -40,6 +42,7 @@ class Result {
 
         return c;
     }
+
 }
 
 
@@ -57,7 +60,7 @@ public class CompareTheTriplets {
                 .map(Integer::parseInt)
                 .collect(toList());
 
-        List<Integer> result = Result.compareTriplets(a, b);
+        List<Integer> result = Resultv2.compareTriplets(a, b);
 
         bufferedWriter.write(
                 result.stream()
