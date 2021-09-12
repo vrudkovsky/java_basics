@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
-class Result {
+class Resultv5 {
 
     /*
      * Complete the 'miniMaxSum' function below.
@@ -35,7 +35,7 @@ public class MiniMaxSum {
                 .map(Integer::parseInt)
                 .collect(toList());
 
-        Result.miniMaxSum(arr);
+        Resultv5.miniMaxSum(arr);
 
         bufferedReader.close();
     }
