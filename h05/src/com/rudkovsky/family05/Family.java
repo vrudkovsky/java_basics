@@ -7,7 +7,7 @@ public class Family {
     private Human mother;
     private Human father;
     private Human[] children = new Human[0];
-    private Pet pet = new Pet("Dog", "Nax", 4);
+    private Pet pet = new Pet("Dog", "Max", 4);
 
     static {
         System.out.printf("New class <<%s>> was loaded\n", Family.class.getSimpleName());

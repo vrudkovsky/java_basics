@@ -3,9 +3,9 @@ package com.rudkovsky.family07;
 import java.util.Arrays;
 
 public class Dog extends Pet implements Foul {
-    private Species species = Species.DOG;
+    private final Species species = Species.DOG;
 
-    public Dog(Species dog, String nickname, int age, int trickLevel, String[] habits) {
+    public Dog(Species species, String nickname, int age, int trickLevel, String[] habits) {
         super(nickname, age, trickLevel, habits);
     }
 
@@ -13,9 +13,6 @@ public class Dog extends Pet implements Foul {
         return species;
     }
 
-    public void setSpecies(Species species) {
-        this.species = species;
-    }
 
     @Override
     public void foul() {

@@ -109,8 +109,6 @@ public class Human {
             System.out.println("He doesn't want to eat");
             return false;
         }
-
-
     }
 
     @Override
