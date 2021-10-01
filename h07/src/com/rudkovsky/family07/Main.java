@@ -1,5 +1,11 @@
 package com.rudkovsky.family07;
 
+import com.rudkovsky.family07.entities.Dog;
+import com.rudkovsky.family07.entities.Family;
+import com.rudkovsky.family07.entities.Human;
+import com.rudkovsky.family07.enums.DayOfWeek;
+import com.rudkovsky.family07.enums.Species;
+
 import java.util.Arrays;
 
 public class Main {

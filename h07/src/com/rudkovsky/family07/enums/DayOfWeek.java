@@ -1,4 +1,4 @@
-package com.rudkovsky.family07;
+package com.rudkovsky.family07.enums;
 
 public enum DayOfWeek {
     SUNDAY,

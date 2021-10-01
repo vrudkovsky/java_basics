@@ -1,9 +1,9 @@
-package com.rudkovsky.family07;
+package com.rudkovsky.family08.entities;
 
-import java.util.Arrays;
+import java.util.Map;
 
 public final class Man extends Human {
-    public Man(String familyMember, String name, String surname, int year, int iq, Family family, String[][] schedule) {
+    public Man(String familyMember, String name, String surname, int year, int iq, Family family, Map<String, String[]> schedule) {
         super(familyMember, name, surname, year, iq, family, schedule);
     }
     public void repairCar(){

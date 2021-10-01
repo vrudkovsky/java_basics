@@ -1,4 +1,7 @@
-package com.rudkovsky.family07;
+package com.rudkovsky.family07.entities;
+
+import com.rudkovsky.family07.enums.Species;
+import com.rudkovsky.family07.interfaces.Foul;
 
 import java.util.Arrays;
 

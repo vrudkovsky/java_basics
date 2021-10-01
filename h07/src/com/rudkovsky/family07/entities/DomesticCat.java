@@ -1,12 +1,14 @@
-package com.rudkovsky.family08;
+package com.rudkovsky.family07.entities;
+
+import com.rudkovsky.family07.enums.Species;
+import com.rudkovsky.family07.interfaces.Foul;
 
 import java.util.Arrays;
-import java.util.Set;
 
 public class DomesticCat extends Pet implements Foul {
     private Species species = Species.DOMESTICCAT;
 
-    public DomesticCat(String nickname, int age, int trickLevel, Set<String> habits) {
+    public DomesticCat(String nickname, int age, int trickLevel, String[] habits) {
         super(nickname, age, trickLevel, habits);
     }
 
@@ -28,7 +30,7 @@ public class DomesticCat extends Pet implements Foul {
                 ", nickname='" + super.getNickname() + '\'' +
                 ", age=" + super.getAge() +
                 ", trickLevel=" + super.getTrickLevel() +
-                ", habits=" + this.getHabits() +
+                ", habits=" + Arrays.toString(super.getHabits()) +
                 '}';
     }
 }

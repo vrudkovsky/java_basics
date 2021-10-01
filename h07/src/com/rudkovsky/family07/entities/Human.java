@@ -1,9 +1,6 @@
-package com.rudkovsky.family08;
+package com.rudkovsky.family07.entities;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
 
 public class Human {
     private String familyMember;
@@ -12,8 +9,7 @@ public class Human {
     private int year;
     private int iq;
     private Family family;
-//    private String[][] schedule = new String[7][2];
-    private Map<String, String> schedule = new HashMap<>();
+    private String[][] schedule = new String[7][2];
 
     public Human() {
     };
@@ -42,7 +38,7 @@ public class Human {
         this.family = family;
     };
 
-    public Human(String familyMember, String name, String surname, int year, int iq, Family family, Map<String, String> schedule) {
+    public Human(String familyMember, String name, String surname, int year, int iq, Family family, String[][] schedule) {
         this.familyMember = familyMember;
         this.name = name;
         this.surname = surname;
@@ -100,34 +96,27 @@ public class Human {
         this.family = family;
     };
 
-    public Map<String, String> getSchedule() {
-        schedule.put(String.valueOf(DayOfWeek.MONDAY), null);
-        schedule.put(String.valueOf(DayOfWeek.TUESDAY), null);
-        schedule.put(String.valueOf(DayOfWeek.WEDNESDAY), null);
-        schedule.put(String.valueOf(DayOfWeek.THURSDAY), null);
-        schedule.put(String.valueOf(DayOfWeek.FRIDAY), null);
-        schedule.put(String.valueOf(DayOfWeek.SATURDAY), null);
-        schedule.put(String.valueOf(DayOfWeek.SUNDAY), null);
+    public String[][] getSchedule() {
         return schedule;
     };
 
-    public void setSchedule(Map<String, String> schedule) {
+    public void setSchedule(String[][] schedule) {
         this.schedule = schedule;
     };
 
     public void greetPet() {
-        System.out.println("Hello " + family.getPet());
+        System.out.println("Hello " + family.getPet().getNickname());
     };
 
-//    public void describePet() {
-//        System.out.println("I have " + family.getPet() +
-//                ". He is name is " + family.getPet() + " years old and he is " +
-//                ((family.getPet().getTrickLevel() > 50) ? "very tricky" : "almost tricky"));
-//    };
-//
-//    public void feedPet() {
-//        System.out.println("Here is your food " + family.getPet().getNickname());
-//    };
+    public void describePet() {
+        System.out.println("I have " + family.getPet() +
+                ". He is name is " + family.getPet().getNickname() + " years old and he is " +
+                ((family.getPet().getTrickLevel() > 50) ? "very tricky" : "almost tricky"));
+    };
+
+    public void feedPet() {
+        System.out.println("Here is your food " + family.getPet().getNickname());
+    };
 
 
     @Override
@@ -137,7 +126,7 @@ public class Human {
                 + "surname = " + this.surname + ", "
                 + "year = " + this.year + ", "
                 + "iq = " + this.iq + ", "
-                + "schedule=" + schedule + ", "
+                + "schedule=" + Arrays.deepToString(schedule) + ", "
                 + "}" + '\n';
         return text;
     };
@@ -150,23 +139,7 @@ public class Human {
         return year == human.year &&
                 iq == human.iq &&
                 name.equals(human.name) &&
-                surname.equals(human.surname);
+                surname.equals(human.surname) &&
+                Arrays.equals(schedule, human.schedule);
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, surname, year, family);
-    }
-
-    @Override
-    protected void finalize() throws Throwable {
-        System.out.println(
-                "Human: {" + "name = " + this.name  + ", "
-                        + "surname = " + this.surname + ", "
-                        + "year = " + this.year + ", "
-                        + "iq = " + this.iq + ", "
-                        + "schedule = " + schedule
-                        + "}"+ "destroyed" + '\n');
-    }
-
 }

@@ -1,4 +1,4 @@
-package com.rudkovsky.family07;
+package com.rudkovsky.family07.entities;
 
 import java.util.Arrays;
 import java.util.Objects;

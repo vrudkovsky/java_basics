@@ -1,4 +1,4 @@
-package com.rudkovsky.family08;
+package com.rudkovsky.family08.entities;
 
 import java.util.Arrays;
 import java.util.HashSet;
