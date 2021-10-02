@@ -1,6 +1,7 @@
 package com.rudkovsky.family12.console;
 
 public class ConsoleMenu {
+
     public static void  init() {
         //Main menu initializer
     }

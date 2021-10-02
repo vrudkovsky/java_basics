@@ -8,14 +8,7 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         //Pet class constructor
-//        Set<String> dogHabits = {"woofing", "defence house", "having walk"};
-//        Dog dog = new Dog(Species.DOG, "Max", 3, 60);
-        //Checking pet's methods
-//        System.out.println(dog.getNickname());
-//        System.out.println(dog.getAge());
-//        dog.eat();
-//        dog.respond();
-//        dog.foul();
+
 
         //Days of the week
         DayOfWeek sanday = DayOfWeek.SUNDAY;
@@ -37,14 +30,13 @@ public class Main {
         //add children to the family
         addams.addChild(daughter);
         addams.addChild(son);
-        //init father schedule
 
+        //init father schedule
         Map<String, String[]> fatherSchedule = new HashMap<>() {{
             put(sanday.name(), new String[]{"get to work", "go home"});
             put(monday.name(), new String[]{"fitness club", "running"});
             put(wednesday.name(), new String[]{"watching TV", "dinner"});
         }};
-
         father.setSchedule(fatherSchedule);
 
         //init mother schedule
@@ -56,7 +48,7 @@ public class Main {
         mother.setSchedule(motherSchedule);
 
         //init daughter schedule
-        HashMap<String, String[]> daughterSchedule = new HashMap<>() {{
+        Map<String, String[]> daughterSchedule = new HashMap<>() {{
             put(sanday.name(), new String[]{"cleaning", "walking"});
             put(monday.name(), new String[]{"cooking", "washing"});
             put(wednesday.name(), new String[]{"cinema", "take a rest"});
@@ -64,11 +56,11 @@ public class Main {
         daughter.setSchedule(daughterSchedule);
         
         //init son schedule
-        String[][] sonSchedule = new String[][]{
-                { sanday.name(), "cleaning", "walking" },
-                { monday.name(), "cooking", "washing" },
-                { wednesday.name(), "cinema", "take a rest" }
-        };
+        Map<String, String[]> sonSchedule = new HashMap<>() {{
+            put(sanday.name(), new String[]{"cleaning", "walking"});
+            put(monday.name(), new String[]{"cooking", "washing"});
+            put(wednesday.name(), new String[]{"cinema", "take a rest"});
+        }};
         son.setSchedule(sonSchedule);
         //add pet to the family initialised above
 //        addams.setPet(dog);
@@ -94,20 +86,21 @@ public class Main {
         System.out.println("<-- Mother -->");
         System.out.println(addams.getMother());
         System.out.println("<-- Children -->");
-        System.out.println(Arrays.toString(addams.getChildren()));
+        System.out.println(addams.getChildren());
         System.out.println("<-- Pet -->");
         System.out.println(addams.getPet());
         //
         System.out.println("<-- ****** -->");
         System.out.println("Get first child in the family");
-//        System.out.println(addams.getChildren()[0]);
+        System.out.println(addams.getChildren().get(0));
         System.out.println("Get schedule of the first child");
-        System.out.println(Arrays.deepToString(addams.getChildren()[0].getSchedule()));
+        addams.getChildren().get(0);
+//        System.out.println(addams.getChildren().get(0));
         //
         System.out.println("<-- ****** -->");
         System.out.println("Get second child in the family");
-        System.out.println(addams.getChildren()[1]);
+        System.out.println(addams.getChildren().get(1));
         System.out.println("Get schedule of the second child");
-        System.out.println(Arrays.deepToString(addams.getChildren()[1].getSchedule()));
+//        System.out.println(addams.getChildren().get(1));
     }
 }

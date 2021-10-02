@@ -3,11 +3,11 @@ package com.rudkovsky.family09.service;
 import com.rudkovsky.family09.dao.IFamilyDao;
 import com.rudkovsky.family09.entity.*;
 
-import java.time.LocalDateTime;
 import java.util.*;
 
 public class FamilyService {
-    private IFamilyDao familyDao;
+
+    private final IFamilyDao familyDao;
 
     public FamilyService(IFamilyDao familyDao) {
         this.familyDao = familyDao;

@@ -1,10 +1,12 @@
 package com.rudkovsky.family08.entities;
 
+import com.rudkovsky.family05.Pet;
 import com.rudkovsky.family08.DayOfWeek;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 
 public class Human {
     private String familyMember;
@@ -102,22 +104,21 @@ public class Human {
     };
 
     public Map<String, String[]> getSchedule() {
-        schedule.put(String.valueOf(DayOfWeek.MONDAY), null);
-        schedule.put(String.valueOf(DayOfWeek.TUESDAY), null);
-        schedule.put(String.valueOf(DayOfWeek.WEDNESDAY), null);
-        schedule.put(String.valueOf(DayOfWeek.THURSDAY), null);
-        schedule.put(String.valueOf(DayOfWeek.FRIDAY), null);
-        schedule.put(String.valueOf(DayOfWeek.SATURDAY), null);
-        schedule.put(String.valueOf(DayOfWeek.SUNDAY), null);
         return schedule;
-    };
+    }
 
     public void setSchedule(Map<String, String[]> schedule) {
         this.schedule = schedule;
-    };
+    }
+
+    private String process(Pet origin) {
+        return Optional.ofNullable(origin)
+                .map(s -> String.format("Hello", s.getNickname()))
+                .orElse(">> I don't have any pet <<");
+    }
 
     public void greetPet() {
-        System.out.println("Hello " + family.getPet());
+        System.out.println(process((Pet) this.family.getPet()));
     };
 
 //    public void describePet() {

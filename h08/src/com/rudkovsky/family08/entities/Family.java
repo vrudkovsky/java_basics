@@ -1,12 +1,16 @@
 package com.rudkovsky.family08.entities;
 
+import com.rudkovsky.family05.Pet;
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 public class Family {
     private Human mother;
     private Human father;
-    private List<Object> children;
+    private List<Object> children = new ArrayList<>();
     private Set<Object> pet;
 
     public Human getMother() {
@@ -33,9 +37,15 @@ public class Family {
         this.children = children;
     };
 
+    private String process(Pet origin) {
+        return Optional.ofNullable(origin)
+                .map(s -> String.format("Hello", s.getNickname()))
+                .orElse(">> I don't have any pet <<");
+    }
+
     public Set<Object> getPet() {
         return pet;
-    };
+    }
 
     public void setPet(Set<Object> pet) {
         this.pet = pet;

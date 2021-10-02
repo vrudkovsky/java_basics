@@ -22,7 +22,7 @@ public final class Man extends Human {
                 ", surname='" + super.getSurname() + '\'' +
                 ", year=" + super.getYear() +
                 ", iq=" + super.getIq() +
-                ", schedule=" + Arrays.deepToString(super.getSchedule()) +
+//                ", schedule=" + Arrays.deepToString(super.getSchedule()) +
                 ", family=" + super.getFamily() +
                 ", pet=" + super.getFamily().getPet() +
                 '}';

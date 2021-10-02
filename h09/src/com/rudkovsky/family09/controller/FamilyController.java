@@ -6,7 +6,8 @@ import com.rudkovsky.family09.service.FamilyService;
 import java.util.*;
 
 public class FamilyController {
-    private FamilyService familyService;
+
+    private final FamilyService familyService;
 
     public FamilyController(FamilyService familyService) {
         this.familyService = familyService;
@@ -21,25 +22,11 @@ public class FamilyController {
     }
 
     public List<Family> getFamiliesBiggerThan(int number) {
-        List<Family> selectedFamilies = new ArrayList<>();
-        for (Family family : this.familyService.getAllFamilies()) {
-            if (family.countFamily() > number) {
-                selectedFamilies.add(family);
-            }
-        }
-
-        return selectedFamilies;
+         return this.familyService.getFamiliesBiggerThan(number);
     }
 
     public List<Family> getFamiliesLessThan(int number) {
-        List<Family> selectedFamilies = new ArrayList<>();
-        for (Family family : this.familyService.getAllFamilies()) {
-            if (family.countFamily() < number) {
-                selectedFamilies.add(family);
-            }
-        }
-
-        return selectedFamilies;
+        return this.familyService.getFamiliesLessThan(number);
     }
 
     public int countFamiliesWithMemberNumber(int number) {
