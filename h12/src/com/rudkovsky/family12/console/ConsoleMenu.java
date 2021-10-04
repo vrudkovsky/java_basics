@@ -7,6 +7,7 @@ public class ConsoleMenu {
     }
 
     private static void safeCall() {
+        System.out.println("<< - safe call - >>");
 
     }
 
