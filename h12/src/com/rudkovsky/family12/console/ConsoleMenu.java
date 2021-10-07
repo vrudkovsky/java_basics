@@ -37,30 +37,37 @@ public class ConsoleMenu {
     }
 
     private static void familiesQLowerList() {
+        System.out.println("<< - familiesQLowerList - >>");
 
     }
 
     private static void countFamiliesByMembers() {
+        System.out.println("<< - countFamiliesByMembers - >>");
 
     }
 
     private static void createNewFamily() {
+        System.out.println("<< - createNewFamily - >>");
 
     }
 
     private static void deleteFamily() {
+        System.out.println("<< - deleteFamily - >>");
 
     }
 
     private static void deleteChild() {
+        System.out.println("<< - deleteChild - >>");
 
     }
 
     private static void bornChild() {
+        System.out.println("<< - bornChild - >>");
 
     }
 
     private static void addoptChild() {
+        System.out.println("<< - addoptChild - >>");
 
     }
 }
