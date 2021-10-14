@@ -1,4 +1,7 @@
-package com.rudkovsky.family12.entity;
+package com.rudkovsky.family12.entity.human;
+
+import com.rudkovsky.family12.entity.enums.DayOfWeek;
+import com.rudkovsky.family12.entity.pet.Pet;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

@@ -1,6 +1,6 @@
 package com.rudkovsky.family12.dao;
 
-import com.rudkovsky.family12.entity.Family;
+import com.rudkovsky.family12.entity.human.Family;
 
 import java.util.ArrayList;
 import java.util.List;

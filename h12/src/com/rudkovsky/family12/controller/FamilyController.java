@@ -1,8 +1,8 @@
 package com.rudkovsky.family12.controller;
 
-import com.rudkovsky.family12.entity.Family;
-import com.rudkovsky.family12.entity.Human;
-import com.rudkovsky.family12.entity.Pet;
+import com.rudkovsky.family12.entity.human.Family;
+import com.rudkovsky.family12.entity.human.Human;
+import com.rudkovsky.family12.entity.pet.Pet;
 import com.rudkovsky.family12.service.FamilyService;
 
 import java.util.ArrayList;

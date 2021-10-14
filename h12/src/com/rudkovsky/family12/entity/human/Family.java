@@ -1,4 +1,6 @@
-package com.rudkovsky.family12.entity;
+package com.rudkovsky.family12.entity.human;
+
+import com.rudkovsky.family12.entity.pet.Pet;
 
 import java.util.*;
 

@@ -1,9 +1,9 @@
 package com.rudkovsky.family12.service;
 
 import com.rudkovsky.family12.dao.CollectionFamilyDao;
-import com.rudkovsky.family12.entity.Family;
-import com.rudkovsky.family12.entity.Human;
-import com.rudkovsky.family12.entity.Pet;
+import com.rudkovsky.family12.entity.human.Family;
+import com.rudkovsky.family12.entity.human.Human;
+import com.rudkovsky.family12.entity.pet.Pet;
 
 import java.util.List;
 import java.util.stream.Collectors;

@@ -1,4 +1,6 @@
-package com.rudkovsky.family12.entity;
+package com.rudkovsky.family12.entity.pet;
+
+import com.rudkovsky.family12.entity.enums.Species;
 
 import java.util.Set;
 
