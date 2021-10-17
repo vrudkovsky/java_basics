@@ -7,7 +7,7 @@ import java.util.*;
 public class Family {
     private Human mother;
     private Human father;
-    private List<Object> children;
+    private List<Human> children;
     public List<Pet> pets;
 
 
@@ -19,7 +19,7 @@ public class Family {
         this.father = father;
     }
 
-    public Family(Human mother, Human father, List<Object> children, List<Pet> pets) {
+    public Family(Human mother, Human father, List<Human> children, List<Pet> pets) {
         this.mother = mother;
         this.father = father;
         this.children = children;
@@ -43,11 +43,11 @@ public class Family {
         this.father = father;
     }
 
-    public List<Object> getChildren() {
+    public List<Human> getChildren() {
         return children;
     }
 
-    public void setChildren(List<Object> children) {
+    public void setChildren(List<Human> children) {
         this.children = children;
     }
 

@@ -14,7 +14,7 @@ public class Woman extends Human {
         super(name, surname, year, iq, pet);
     }
 
-    public Woman(String name, String surname, int year, int iq, Pet pet, HashMap<String, String> schedule) {
+    public Woman(String name, String surname, int year, int iq, Pet pet, HashMap<String, String[]> schedule) {
         super(name, surname, year, iq, pet, schedule);
     }
 

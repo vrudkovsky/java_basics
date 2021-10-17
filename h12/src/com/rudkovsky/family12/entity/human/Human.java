@@ -19,7 +19,7 @@ public class Human {
     private String surname;
     private long birthDate;
     private int iq;
-    private Map<String, String> schedule = new HashMap<>();
+    private Map<String, String[]> schedule = new HashMap<>();
     private Pet pet;
     private Family family;
 
@@ -39,7 +39,7 @@ public class Human {
         this.pet = pet;
     }
 
-    public Human(String name, String surname, long birthDate, int iq, Pet pet, Map<String, String> schedule) {
+    public Human(String name, String surname, long birthDate, int iq, Pet pet, Map<String, String[]> schedule) {
         this(name,surname, birthDate, iq, pet);
         this.schedule = schedule;
     }
@@ -51,7 +51,7 @@ public class Human {
         this.birthDate = date.getTime();
     }
 
-    public Human(String name, String surname, long birthDate, int iq, Map<String, String> schedule, Pet pet, Family family) {
+    public Human(String name, String surname, long birthDate, int iq, Map<String, String[]> schedule, Pet pet, Family family) {
         this.name = name;
         this.surname = surname;
         this.birthDate = birthDate;
@@ -109,7 +109,7 @@ public class Human {
         this.iq = iq;
     }
 
-    public Map<String, String> getSchedule() {
+    public Map<String, String[]> getSchedule() {
         schedule.put(String.valueOf(DayOfWeek.MONDAY), null);
         schedule.put(String.valueOf(DayOfWeek.TUESDAY), null);
         schedule.put(String.valueOf(DayOfWeek.WEDNESDAY), null);
@@ -121,7 +121,7 @@ public class Human {
         return schedule;
     }
 
-    public void setSchedule(Map<String, String> schedule) {
+    public void setSchedule(Map<String, String[]> schedule) {
         this.schedule = schedule;
     }
 
