@@ -3,6 +3,7 @@ package com.rudkovsky.family12.console;
 import com.rudkovsky.family12.controller.FamilyController;
 import com.rudkovsky.family12.dao.CollectionFamilyDao;
 import com.rudkovsky.family12.entity.human.Human;
+import com.rudkovsky.family12.entity.human.Man;
 import com.rudkovsky.family12.entity.human.Woman;
 import com.rudkovsky.family12.service.FamilyService;
 
@@ -92,14 +93,53 @@ public class ConsoleMenu {
                         String fatherBirthday = sc.nextLine().trim();
                         System.out.println("Enter father IQ");
                         String fatherIQ = sc.nextLine().trim();
-                        Woman mother = new Woman(motherName, motherSurname, motherBirthday + '/' + motherMonth + '/' + motherYear, motherIQ);
-
+                        Woman mother = new Woman(motherName, motherSurname, Integer.parseInt(motherYear), Integer.parseInt(motherIQ));
+                        Man father = new Man(fatherName, fatherSurname, Integer.parseInt(fatherYear), Integer.parseInt(fatherIQ));
+                        fc.createNewFamily(father, mother);
                         break;
                     case ("7"):
-
+                        System.out.println("Enter family number");
+                        String fnumber = sc.nextLine().trim();
+                        fc.deleteFamilyByIndex(Integer.parseInt(fnumber));
                         break;
                     case ("8"):
-
+                        System.out.println('\n');
+                        System.out.println("Available commands:\n" +
+                                "1. To born child" +
+                                "2. To adopt child" +
+                                "3. Return to main menu"
+                                );
+                        String userInput = sc.nextLine().trim();
+                        int familyId;
+                        switch (userInput) {
+                            case ("1"):
+                                System.out.print("Enter family number\n");
+                                familyId = Integer.parseInt(sc.nextLine().trim()) - 1;
+                                System.out.print("Enter boy's name\n");
+                                String boysName = sc.nextLine().trim().toLowerCase();
+                                System.out.print("Enter girl's name\n");
+                                String girlsName = sc.nextLine().trim().toLowerCase();
+                                fc.bornChild(fc.getFamilyById(familyId), boysName, girlsName);
+                                break;
+                            case ("2"):
+                                System.out.print("Enter family number\n");
+                                familyId = Integer.parseInt(sc.nextLine().trim()) - 1;
+                                System.out.print("Enter child's name\n");
+                                String childName = sc.nextLine().trim().toLowerCase();
+                                System.out.print("Enter child's surname\n");
+                                String childSurName = sc.nextLine().trim().toLowerCase();
+                                System.out.print("Enter child's birthyear\n");
+                                String childsYear = sc.nextLine().trim();
+                                System.out.print("Введите IQ ребенка\n");
+                                String childsIq = sc.nextLine().trim();
+                                fc.adoptChild(fc.getFamilyById(familyId), new Human(childName, childSurName, Integer.parseInt(childsYear), Integer.parseInt(childsIq)));
+                                break;
+                            case ("3"):
+                                break;
+                            default:
+                                System.out.println("You've entered wrong data");
+                                break;
+                        }
                         break;
                     case ("9"):
 

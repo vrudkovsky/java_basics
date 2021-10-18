@@ -22,6 +22,7 @@ public class Woman extends Human {
         super(motherName, motherSurname, motherBirth, motherIq);
     }
 
+
     public void makeup(){
         System.out.println("Doing make-up now");
     }
