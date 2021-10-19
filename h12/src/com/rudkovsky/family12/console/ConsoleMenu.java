@@ -2,229 +2,252 @@ package com.rudkovsky.family12.console;
 
 import com.rudkovsky.family12.controller.FamilyController;
 import com.rudkovsky.family12.dao.CollectionFamilyDao;
+import com.rudkovsky.family12.entity.enums.Species;
 import com.rudkovsky.family12.entity.human.Human;
 import com.rudkovsky.family12.entity.human.Man;
 import com.rudkovsky.family12.entity.human.Woman;
+import com.rudkovsky.family12.entity.pet.Pet;
 import com.rudkovsky.family12.service.FamilyService;
 
+import java.text.ParseException;
 import java.util.Locale;
 import java.util.Scanner;
+import java.util.function.Consumer;
+import java.util.function.Function;
 
 public class ConsoleMenu {
+    public static FamilyController fc = new FamilyController(new FamilyService(new CollectionFamilyDao()));
     public static void run() {
-        FamilyController fc = new FamilyController(new FamilyService(new CollectionFamilyDao()));
         Scanner sc = new Scanner(System.in);
-        String input;
+        boolean stopProgram = false;
+        while (!stopProgram) {
+            printMenu();
+            String input = sc.nextLine().trim();
 
-        while (true) {
-            System.out.print('\n');
-            System.out.println("Available commands: \n" +
-                    "1. Demo data initialization  \n" +
-                    "2. Show all family list  \n" +
-                    "3. Show all family list with number of members begger then  \n" +
-                    "4. Show all family list with number of members less then  \n" +
-                    "5. Count families with members equals to  \n" +
-                    "6. Create new family  \n" +
-                    "7. Delete family by index  \n" +
-                    "8. Edit family by index  \n" +
-                    "\t1. Born a child  \n" +
-                    "\t2. Adopt a child  \n" +
-                    "\t3. Return to main menu \n" +
-                    "9. Delete children of given age from the family \n" +
-                    "10. Save list of family to the file \n" +
-                    "11. Download list of families form the file\n"
-            );
-            System.out.print('\n');
-            System.out.print("Enter number of command or print exit to end the program \n");
-
-            try {
-                input = sc.nextLine().trim().toLowerCase();
-
-                if (input.equals("exit")) {
-                    System.out.println("Program is over");
+            switch (input) {
+                case "1":
+                    safeCall(ConsoleMenu::fileDB, sc);
                     break;
-                }
-
-                switch (input) {
-                    case ("1"):
-                        fc.init();
-                        break;
-                    case ("2"):
-                        fc.displayAllFamilies();
-                        break;
-                    case ("3"):
-                        System.out.println("Enter age");
-                        String ab = sc.nextLine().trim();
-                        fc.getFamiliesBiggerThan(Integer.parseInt(ab));
-                        break;
-                    case ("4"):
-                        System.out.println("Enter age");
-                        String al = sc.nextLine().trim();
-                        fc.getFamiliesLessThan(Integer.parseInt(al));
-                        break;
-                    case ("5"):
-                        System.out.println("Enter age");
-                        String aq = sc.nextLine().trim();
-                        fc.countFamiliesWithMemberNumber(Integer.parseInt(aq));
-                        break;
-                    case ("6"):
-                        System.out.println("Enter mother name");
-                        String motherName = sc.nextLine().trim();
-                        System.out.println("Enter mother surname");
-                        String motherSurname = sc.nextLine().trim();
-                        System.out.println("Enter mother year of birth");
-                        String motherYear = sc.nextLine().trim();
-                        System.out.println("Enter mother month of birth");
-                        String motherMonth = sc.nextLine().trim();
-                        System.out.println("Enter mother birthday");
-                        String motherBirthday = sc.nextLine().trim();
-                        System.out.println("Enter mother IQ");
-                        String motherIQ = sc.nextLine().trim();
-
-                        System.out.println("Enter father name");
-                        String fatherName = sc.nextLine().trim();
-                        System.out.println("Enter father surname");
-                        String fatherSurname = sc.nextLine().trim();
-                        System.out.println("Enter father year of birth");
-                        String fatherYear = sc.nextLine().trim();
-                        System.out.println("Enter father month of birth");
-                        String fatherMonth = sc.nextLine().trim();
-                        System.out.println("Enter father birthday");
-                        String fatherBirthday = sc.nextLine().trim();
-                        System.out.println("Enter father IQ");
-                        String fatherIQ = sc.nextLine().trim();
-                        Woman mother = new Woman(motherName, motherSurname, Integer.parseInt(motherYear), Integer.parseInt(motherIQ));
-                        Man father = new Man(fatherName, fatherSurname, Integer.parseInt(fatherYear), Integer.parseInt(fatherIQ));
-                        fc.createNewFamily(father, mother);
-                        break;
-                    case ("7"):
-                        System.out.println("Enter family number");
-                        String fnumber = sc.nextLine().trim();
-                        fc.deleteFamilyByIndex(Integer.parseInt(fnumber));
-                        break;
-                    case ("8"):
-                        System.out.println('\n');
-                        System.out.println("Available commands:\n" +
-                                "1. To born child" +
-                                "2. To adopt child" +
-                                "3. Return to main menu"
-                                );
-                        String userInput = sc.nextLine().trim();
-                        int familyId;
-                        switch (userInput) {
-                            case ("1"):
-                                System.out.print("Enter family number\n");
-                                familyId = Integer.parseInt(sc.nextLine().trim()) - 1;
-                                System.out.print("Enter boy's name\n");
-                                String boysName = sc.nextLine().trim().toLowerCase();
-                                System.out.print("Enter girl's name\n");
-                                String girlsName = sc.nextLine().trim().toLowerCase();
-                                fc.bornChild(fc.getFamilyById(familyId), boysName, girlsName);
-                                break;
-                            case ("2"):
-                                System.out.print("Enter family number\n");
-                                familyId = Integer.parseInt(sc.nextLine().trim()) - 1;
-                                System.out.print("Enter child's name\n");
-                                String childName = sc.nextLine().trim().toLowerCase();
-                                System.out.print("Enter child's surname\n");
-                                String childSurName = sc.nextLine().trim().toLowerCase();
-                                System.out.print("Enter child's birthyear\n");
-                                String childsYear = sc.nextLine().trim();
-                                System.out.print("Введите IQ ребенка\n");
-                                String childsIq = sc.nextLine().trim();
-                                fc.adoptChild(fc.getFamilyById(familyId), new Human(childName, childSurName, Integer.parseInt(childsYear), Integer.parseInt(childsIq)));
-                                break;
-                            case ("3"):
-                                break;
-                            default:
-                                System.out.println("You've entered wrong data");
-                                break;
-                        }
-                        break;
-                    case ("9"):
-
-                        break;
-                    case ("10"):
-
-                        break;
-                    case ("11"):
-
-                        break;
-
-                }
-
-            } catch (RuntimeException e) {
-                System.out.printf("You've entered wrong data. It led to error number %s %s \n", e.getCause(), e.getMessage());
+                case "2":
+                    safeCall(ConsoleMenu::familyList, sc);
+                    break;
+                case "3":
+                    safeCall(ConsoleMenu::familiesQHigherList, sc);
+                    break;
+                case "4":
+                    safeCall(ConsoleMenu::familiesQLowerList, sc);
+                    break;
+                case "5":
+                    safeCall(ConsoleMenu::countFamiliesByMembers, sc);
+                    break;
+                case "6":
+                    safeCall(ConsoleMenu::createNewFamily, sc);
+                    break;
+                case "7":
+                    safeCall(ConsoleMenu::deleteFamily, sc);
+                    break;
+                case "8":
+                    printSubMenu();
+                    String smselect = sc.nextLine().trim();
+                    switch (smselect) {
+                        case "1":
+                            safeCall(ConsoleMenu::bornChild, sc);
+                            break;
+                        case "2":
+                            safeCall(ConsoleMenu::addoptChild, sc);
+                            break;
+                        case "3":
+                            break;
+                        default:
+                            System.out.println("Unknown command");
+                    }
+                    break;
+                case "9":
+                    safeCall(ConsoleMenu::deleteChild, sc);
+                    break;
+                case "10":
+                    stopProgram = true;
+                    break;
+                default:
+                    System.out.println("Unknown command");
             }
-
         }
     }
 
-    public static void  init() {
-        //Main menu initializer
-    }
-
-    private static void safeCall() {
-        System.out.println("<< - safe call - >>");
-
+    private static void safeCall(Consumer<Scanner> consumer, Scanner sc) {
+        try {
+            consumer.accept(sc);
+        } catch (Exception e) {
+            System.err.printf("Error has happened %s\n", e.getMessage());
+        }
     }
 
     private static void printMenu() {
-        System.out.println("<< - printMenu - >>");
-
+        System.out.print('\n');
+        System.out.println("Available commands: \n" +
+                "1. Demo data initialization  \n" +
+                "2. Show all family list  \n" +
+                "3. Show all family list with number of members begger then  \n" +
+                "4. Show all family list with number of members less then  \n" +
+                "5. Count families with members equals to  \n" +
+                "6. Create new family  \n" +
+                "7. Delete family by index  \n" +
+                "8. Edit family by index  \n" +
+                "9. Delete children of given age from the family \n" +
+                "10. Save list of family to the file \n" +
+                "11. Download list of families form the file\n"
+        );
+        System.out.print('\n');
+        System.out.print("Enter number of command or print exit to end the program \n");
     }
 
     private static void printSubMenu() {
-        System.out.println("<< - printSubMenu - >>");
-
+        System.out.println(
+                "- Born a child\n" +
+                "- Adopt a child\n" +
+                "- Return to main menu"
+        );
     }
 
-    private static void fileDB () {
-        //File with the data
-        System.out.println("<< - fileDB - >>");
+    private static <T> T readTyped(Scanner sc, Function<String, T> func, String errMessage) {
+        T tValue = null;
+
+        do {
+            String input = sc.nextLine().trim();
+            try {
+                tValue = func.apply(input);
+            } catch (Exception e) {
+                System.out.println(errMessage);
+            }
+        } while (tValue == null);
+
+        return tValue;
     }
 
-    private static void familyList() {
-        // List of all families
-        System.out.println("<< - List of all families - >>");
+    private static void fileDB (Scanner sc) {
+        Pet dog = new Pet(Species.DOG, "Max") {
+            @Override
+            public void respond() {
+                System.out.println("woof-woof-woof");
+            }
+        };
+
+        dog.habits.add("run");
+        dog.habits.add("sleep");
+
+        try {
+            fc.createNewFamily(
+                    new Woman("Sarra", "Marley", 1977, 90),
+                    new Man("Bob", "Marley", 1975, 125));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            fc.createNewFamily(
+                    new Woman("Sveta", "Zaster", 1989, 123),
+                    new Man("Max", "Zaster", 1979, 105));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            fc.createNewFamily(
+                    new Woman("Helene", "Wild", 1999, 80),
+                    new Man("John", "Wild", 1995, 115));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("Families are created");
     }
 
-    private static void familiesQHigherList() {
-        System.out.println("<< - familiesQHigherList - >>");
-
+    private static void familyList(Scanner sc) {
+        fc.displayAllFamilies();
+        System.out.println("Families list");
     }
 
-    private static void familiesQLowerList() {
-        System.out.println("<< - familiesQLowerList - >>");
-
+    private static void familiesQHigherList(Scanner sc) {
+        System.out.println("Enter number of people");
+        Integer pb = readTyped(sc, Integer::parseInt, "Not a number");
+        System.out.println("List of families with members bigger then" + pb + "");
+        fc.getFamiliesBiggerThan(pb).forEach(f -> System.out.println(f.prettyFormat()));
     }
 
-    private static void countFamiliesByMembers() {
-        System.out.println("<< - countFamiliesByMembers - >>");
-
+    private static void familiesQLowerList(Scanner sc) {
+        System.out.println("Enter number of people");
+        Integer pl = readTyped(sc, Integer::parseInt, "Not a number");
+        System.out.println("List of families with members less then" + pl + "");
+        fc.getFamiliesLessThan(pl).forEach(f -> System.out.println(f.prettyFormat()));
     }
 
-    private static void createNewFamily() {
-        System.out.println("<< - createNewFamily - >>");
-
+    private static void countFamiliesByMembers(Scanner sc) {
+        System.out.println("Enter number of people");
+        Integer pq = readTyped(sc, Integer::parseInt, "Not a number");
+        System.out.println("Quantity of families with members" + pq);
+        System.out.printf("%d\n", fc.countFamiliesWithMemberNumber(pq));
     }
 
-    private static void deleteFamily() {
+    private static void createNewFamily(Scanner sc) {
+        System.out.println("Mother's name");
+        String motherName = readTyped(sc, String::valueOf, "Not a string try again");
+        System.out.println("Mother's surname");
+        String motherSurname = readTyped(sc, String::valueOf, "Not a string try again");
+        System.out.println("Mother's birthyear");
+        Integer birthYear = readTyped(sc, Integer::parseInt, "Not a string try again");
+        System.out.println("Mother's birthmonth");
+        Integer birthMonth = readTyped(sc, Integer::parseInt, "Not a string try again");
+        System.out.println("Mother's birthday");
+        Integer birthDay = readTyped(sc, Integer::parseInt, "Not a string try again");
+        System.out.println("Mother's IQ");
+        Integer motherIq = readTyped(sc, Integer::parseInt, "Not a string try again");
+        int motherBirth = birthYear;
+        Human mother = null;
+        try {
+            mother = new Woman(motherName, motherSurname, motherBirth, motherIq);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Father's name");
+        String fatherName = readTyped(sc, String::valueOf, "Not a string try again");
+        System.out.println("Father's surname");
+        String fatherSurname = readTyped(sc, String::valueOf, "Not a string try again");
+        System.out.println("Father's birthyear");
+        Integer fatherYear = readTyped(sc, Integer::parseInt, "Not a string try again");
+        System.out.println("Father's birthmonth");
+        Integer fatherBirthMonth = readTyped(sc, Integer::parseInt, "Not a string try again");
+        System.out.println("Father's birthday");
+        Integer fatherBirthDay = readTyped(sc, Integer::parseInt, "Not a string try again");
+        System.out.println("Father's IQ");
+        Integer fatherIq = readTyped(sc, Integer::parseInt, "Not a string try again");
+        System.out.println(" Mother: Name" + motherName + "Surname " + motherSurname + "Day " + birthDay + "Month " + birthMonth + "Year " + birthYear + "IQ " + motherIq + " " +
+                " Father: Name" + fatherName + "Surname " + fatherSurname + "Day " + fatherBirthDay + "Month " + fatherBirthMonth + "Year " + fatherYear + "IQ " + fatherIq + " ");
+        int fatherBirth = fatherYear;
+        Human father = null;
+        try {
+            father = new Man(fatherName, fatherSurname, fatherBirth, fatherIq);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        fc.createNewFamily(mother, father);
+    }
+
+    private static void deleteFamily(Scanner sc) {
         System.out.println("<< - deleteFamily - >>");
 
     }
 
-    private static void deleteChild() {
+    private static void deleteChild(Scanner sc) {
         System.out.println("<< - deleteChild - >>");
 
     }
 
-    private static void bornChild() {
+    private static void bornChild(Scanner sc) {
         System.out.println("<< - bornChild - >>");
 
     }
 
-    private static void addoptChild() {
+    private static void addoptChild(Scanner sc) {
         System.out.println("<< - addoptChild - >>");
 
     }
